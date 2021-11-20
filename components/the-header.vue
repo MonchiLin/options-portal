@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-blue w-full flex flex-row justify-center">
+  <header
+      class="bg-transparent absolute w-full flex flex-row justify-center"
+      :class="[visible && '<md:bg-blue']"
+  >
     <div
         class="page-content flex flex-row items-center <md:justify-between justify-center h-[72px]"
         :style="{ zIndex: visible ? 10000 : 1 }"
@@ -28,16 +31,29 @@
         Open Account
       </button>
 
-      <img @click="handleMenuClick" class="<md:block <lg:hidden cursor-pointer w-[25px]" src="assets/the-header/icons8-menu_rounded.png" alt="">
+      <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]" src="assets/the-header/icons8-menu_rounded.png" alt="">
 
     </div>
 
     <sidebar :base-z-index="1000" position="full" v-model:visible="visible">
-      <div class="w-screen h-screen bg-blue">
+      <div class="w-screen min-h-screen bg-blue relative top-[60px] pb-[70px] flex flex-col items-center">
+        <template v-for="(item, index) of navs" :key="item.title">
+          <a
+              :class="[activeRouteIndex === index ? 'text-orange' : 'text-white']"
+              class="text-[30px] pt-[57px]"
+              :href="item.link"
+          >
+            {{ item.title }}
+          </a>
+        </template>
 
+        <button
+            class="mt-[60px] font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white width-[136px] rounded-[6px] text-[#2368E1]">
+          Open Account
+        </button>
       </div>
     </sidebar>
-  </div>
+  </header>
 </template>
 
 <script lang="ts">

@@ -1,5 +1,3 @@
-import colors from 'windicss/colors'
-
 export default {
 	theme: {
 		colors: theme => ({
@@ -7,6 +5,7 @@ export default {
 			'secondary': "#171648",
 			'orange': "#EF7F3C",
 			'white': "white",
+			'blue': "#217BF4",
 		}),
 		backgroundColor: theme => ({
 			'white': 'white',
