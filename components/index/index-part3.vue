@@ -3,7 +3,7 @@
     <div
         class="
           <md:(flex-col pb-[30px] h-auto)
-          min-h-[1055px] pb-[60px]
+          h-auto pb-[60px]
           flex items-center page-content flex-col
         "
     >
@@ -112,11 +112,10 @@
 import { defineComponent } from "@vue/runtime-core";
 import { useMediaQuery } from "~/utils/shared";
 import IndexPart2BluePointer from "./index-part2-blue-pointer.vue";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import ThePart from "~/components/the-part.vue";
 import Panel from 'primevue/panel'
 import isNil from 'lodash-es/isNil'
-import debounce from 'lodash-es/debounce'
 
 export default defineComponent({
   components: {
@@ -145,27 +144,27 @@ export default defineComponent({
         label: "Safe & Secure",
         icon: "/index/part3/Safe.png",
         description: "Steady Group is headquartered in London,United Kingdom, and is subject to the supervision of the British Stock Exchange and the British FCA. Client funds are deposited in a separate secure account at Barclays Bank in the United Kingdom",
-        descriptionIcon: "/index/part3/Safe & Secure.png"
+        descriptionIcon: "/index/part3/Safe&Secure.png"
       }, {
         label: "Open and transparent",
         icon: "/index/part3/open.png",
         description: "Steady option offers advanced the gateway USES advanced encryption technology of up to 256 bits. Allow each customer to instantly customize the trading strategy, and real-time view of the transaction records. ",
-        descriptionIcon: "/index/part3/Open and transparent .png"
+        descriptionIcon: "/index/part3/Openandtransparent.png"
       }, {
         label: "Transaction zero tax",
         icon: "/index/part3/Transaction.png",
         description: "All taxes and fees are borne by the guarantee company of the fund product, making it easier for users to make profits ",
-        descriptionIcon: "/index/part3/Transaction zero tax.png"
+        descriptionIcon: "/index/part3/Transactionzerotax.png"
       }, {
         label: "Fast Execution",
         icon: "/index/part3/Fast.png",
         description: "Steady option provides investors with education on trading strategies and financial markets to clients in need. ",
-        descriptionIcon: "/index/part3/Fast Execution.png"
+        descriptionIcon: "/index/part3/FastExecution.png"
       }, {
         label: "World-class team",
         icon: "/index/part3/team.png",
         description: "Founded by traders with more than 30 years of experience, the company manages foreign exchange transactions at major Canadian banks such as Imperial Bank of Canada, Royal Bank of Canada and Bank of Canada.",
-        descriptionIcon: "/index/part3/World-class team.png"
+        descriptionIcon: "/index/part3/World-classteam.png"
       },
     ])
 
