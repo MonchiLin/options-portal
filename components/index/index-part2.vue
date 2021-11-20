@@ -1,67 +1,70 @@
 <template>
   <section
-      :style="{backgroundImage: mq.mobile ? 'url(assets/index/background_2_mobile.png)' : 'url(assets/index/background_2.png)'}"
-      class="
-        <md:(flex-col pb-[34px] h-auto justify-start)
-        h-[816px] justify-evenly flex-row
-        w-screen bg-cover flex items-center
-      "
+      :style="{backgroundImage: mq.mobile ? 'url(/index/background_2_mobile.png)' : 'url(/index/background_2.png)'}"
+      class="bg-cover w-screen flex flex-col items-center"
   >
-
     <div
         class="
+          <md:(flex-col pb-[34px] h-auto justify-start)
+          h-[816px] justify-between
+          bg-cover flex items-center page-content
+        "
+    >
+      <div
+          class="
           <md:(pt-[30px] justify-start px-[20px])
           flex flex-col justify-evenly
         ">
 
-      <h6 class="text-blue text-[16px]">{{ text.t1 }}</h6>
-      <h5 class="pt-[10px] text-primary text-[35px] font-black">{{ text.t2 }}</h5>
-      <p
-          class="
+        <h6 class="text-blue text-[16px]">{{ text.t1 }}</h6>
+        <h5 class="pt-[10px] text-primary text-[35px] font-black">{{ text.t2 }}</h5>
+        <p
+            class="
             <md:(w-auto)
             pt-[30px] w-[631px] leading-[32px] text-primary text-[18px]
           "
-      >{{ text.t3 }}</p>
+        >{{ text.t3 }}</p>
 
-      <ul class="mt-[30px] text-secondary font-medium">
-        <li v-for="item of text.t4" :key="item" class="flex flex-row items-center">
-          <div class="h-full self-start mt-[3px]">
-            <index-part2-blue-pointer/>
-          </div>
-          <span class="pl-[12px]">{{item}}</span>
-        </li>
-      </ul>
+        <ul class="mt-[30px] text-secondary font-medium">
+          <li v-for="item of text.t4" :key="item" class="flex flex-row items-center">
+            <div class="h-full self-start mt-[3px]">
+              <index-part2-blue-pointer/>
+            </div>
+            <span class="pl-[12px]">{{item}}</span>
+          </li>
+        </ul>
 
 
-      <!--   按钮   -->
-      <div
-          class="
+        <!--   按钮   -->
+        <div
+            class="
             mt-[42px] flex flex-row items-center
           "
-      >
-        <button
-            class="
+        >
+          <button
+              class="
             w-[163px] h-[48px] bg-orange rounded-[6px] text-white
           "
-        >
-          {{ text.t5 }}
-        </button>
+          >
+            {{ text.t5 }}
+          </button>
 
-        <div class="flex items-center ml-[30px]">
-          <span class="text-orange">{{ text.t6 }}</span>
-          <img class="w-[22px] pl-[10px]" src="assets/index/arrow-right.png" alt="">
+          <div class="flex items-center ml-[30px]">
+            <span class="text-orange">{{ text.t6 }}</span>
+            <img class="w-[22px] pl-[10px]" src="/index/arrow-right.png" alt="">
+          </div>
         </div>
       </div>
-    </div>
 
-    <img
-        src="assets/index/phone-preview.png"
-        class="
+      <img
+          src="/index/phone-preview.png"
+          class="
           <md:(mt-[38px])
           w-[320px]
         "
-        alt=""
-    >
+          alt=""
+      >
+    </div>
   </section>
 </template>
 
@@ -70,7 +73,6 @@ import { defineComponent } from "@vue/runtime-core";
 import { useMediaQuery } from "~/utils/shared";
 import IndexPart2BluePointer from "./index-part2-blue-pointer.vue";
 import { reactive } from "vue";
-
 
 export default defineComponent({
   components: {

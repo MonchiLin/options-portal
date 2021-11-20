@@ -1,56 +1,61 @@
 <template>
   <section
-      :style="{backgroundImage: mq.mobile ? 'url(assets/index/background_1_mobile.jpg)' : 'url(assets/index/background_1.png)'}"
-      class="
-        <md:(flex-col pb-[34px] h-[700px] justify-start)
-        h-[600px] justify-evenly flex-row
-        w-screen bg-cover pt-[60px] text-white flex items-center
-      "
+      :style="{backgroundImage: mq.mobile ? 'url(/index/background_1_mobile.jpg)' : 'url(/index/background_1.png)'}"
+      class="bg-cover pt-[60px] w-screen flex flex-col items-center"
   >
-    <img
-        src="assets/index/meeting.png"
-        class="
-          <md:w-[300px]
-          w-[460px]
-        "
-        alt=""
-    >
-
     <div
         class="
+          <md:(flex-col pb-[34px] h-[700px] justify-start)
+          h-[600px] justify-between flex-row
+          page-content flex items-center text-white
+        "
+    >
+      <img
+          src="/index/meeting.png"
+          class="
+            <md:w-[300px]
+            w-[460px]
+          "
+          alt=""
+      >
+
+      <div
+          class="
           <md:(items-center pt-[30px])
           items-end
           flex flex-col
-        ">
-      <div
-          class="
+        "
+      >
+        <div
+            class="
             <md:(text-[34px] text-center leading-[40px] w-[334px])
             text-right leading-[75px]
             text-[44px]
             font-black
           "
-      >
-        <p>{{ text.t1 }}</p>
-        <p>{{ text.t2 }}</p>
-      </div>
-      <p
-          class="
+        >
+          <p>{{ text.t1 }}</p>
+          <p>{{ text.t2 }}</p>
+        </div>
+        <p
+            class="
             <md:(pt-[35px] text-[14px] w-[238px] leading-[24px])
             text-[18px]
             opacity-80 pt-[11px] text-[18px]
           "
-      >
-        {{ text.t3 }}
-      </p>
+        >
+          {{ text.t3 }}
+        </p>
 
-      <button
-          class="
+        <button
+            class="
             <md:(mt-[30px])
             mt-[46px] w-[163px] h-[48px] bg-orange rounded-[6px]
           "
-      >
-        {{ text.t4 }}
-      </button>
+        >
+          {{ text.t4 }}
+        </button>
+      </div>
     </div>
   </section>
 </template>
