@@ -1,6 +1,9 @@
 <template>
   <div class="bg-blue w-full flex flex-row justify-center">
-    <div class="page-content flex flex-row items-center <md:justify-between justify-center h-[72px]">
+    <div
+        class="page-content flex flex-row items-center <md:justify-between justify-center h-[72px]"
+        :style="{ zIndex: visible ? 10000 : 1 }"
+    >
 
       <div class="flex flex-row items-center">
         <img src="assets/the-header/logo.png" class="w-[28px] h-[28px]"/>
@@ -25,18 +28,28 @@
         Open Account
       </button>
 
-      <img class="<md:block <lg:hidden cursor-pointer w-[25px]" src="assets/the-header/icons8-menu_rounded.png" alt="">
+      <img @click="handleMenuClick" class="<md:block <lg:hidden cursor-pointer w-[25px]" src="assets/the-header/icons8-menu_rounded.png" alt="">
 
     </div>
+
+    <sidebar :base-z-index="1000" position="full" v-model:visible="visible">
+      <div class="w-screen h-screen bg-blue">
+
+      </div>
+    </sidebar>
   </div>
 </template>
 
 <script lang="ts">
 import { useMediaQuery } from "~/utils/shared";
-import { reactive, defineComponent, computed } from "vue";
+import { reactive, defineComponent, computed, ref } from "vue";
 import { useRoute } from "vue-router";
+import Sidebar from 'primevue/sidebar';
 
 export default defineComponent({
+  components: {
+    Sidebar
+  },
   setup() {
     const mq = useMediaQuery()
     const navs = reactive([
@@ -46,6 +59,7 @@ export default defineComponent({
       {title: "Products", linkKind: "link", link: "products"},
       {title: "News", linkKind: "link", link: "news"},
     ])
+    const visible = ref(false)
 
     const route = useRoute()
 
@@ -57,10 +71,16 @@ export default defineComponent({
       return 0
     })
 
+    const handleMenuClick = () => {
+      visible.value = !visible.value
+    }
+
     return {
       mq,
       navs,
-      activeRouteIndex
+      activeRouteIndex,
+      handleMenuClick,
+      visible
     }
   }
 })
