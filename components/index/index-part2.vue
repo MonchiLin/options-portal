@@ -1,7 +1,7 @@
 <template>
-  <section
-      :style="{backgroundImage: mq.mobile ? 'url(/index/background_2_mobile.png)' : 'url(/index/background_2.png)'}"
-      class="bg-cover w-screen flex flex-col items-center"
+  <the-part
+      background-for-md="url(/index/background_2_mobile.png)"
+      background="url(/index/background_2.png)"
   >
     <div
         class="
@@ -65,7 +65,7 @@
           alt=""
       >
     </div>
-  </section>
+  </the-part>
 </template>
 
 <script lang="ts">
@@ -73,9 +73,11 @@ import { defineComponent } from "@vue/runtime-core";
 import { useMediaQuery } from "~/utils/shared";
 import IndexPart2BluePointer from "./index-part2-blue-pointer.vue";
 import { reactive } from "vue";
+import ThePart from "~/components/the-part.vue";
 
 export default defineComponent({
   components: {
+    ThePart,
     IndexPart2BluePointer
   },
   setup() {

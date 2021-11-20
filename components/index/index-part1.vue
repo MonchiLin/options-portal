@@ -1,7 +1,7 @@
 <template>
-  <section
-      :style="{backgroundImage: mq.mobile ? 'url(/index/background_1_mobile.jpg)' : 'url(/index/background_1.png)'}"
-      class="bg-cover pt-[60px] w-screen flex flex-col items-center"
+  <the-part
+      background-for-md="url(/index/background_1_mobile.jpg)"
+      background="url(/index/background_1.png)"
   >
     <div
         class="
@@ -57,7 +57,7 @@
         </button>
       </div>
     </div>
-  </section>
+  </the-part>
 </template>
 
 <script lang="ts">
@@ -66,9 +66,10 @@ import { useMediaQuery } from "~/utils/shared";
 import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
 import { reactive } from "vue";
+import ThePart from "~/components/the-part.vue";
 
 export default defineComponent({
-  components: {},
+  components: {ThePart},
   setup() {
     const mq = useMediaQuery()
     const text = reactive({

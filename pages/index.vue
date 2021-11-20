@@ -4,6 +4,7 @@
     <main class="flex flex-col w-full">
       <index-part1/>
       <index-part2/>
+      <index-part3/>
     </main>
     <the-footer/>
   </nuxt-layout>
@@ -16,9 +17,10 @@ import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
 import IndexPart1 from "~/components/index/index-part1.vue";
 import IndexPart2 from "~/components/index/index-part2.vue";
+import IndexPart3 from "~/components/index/index-part3.vue";
 
 export default defineComponent({
-  components: {IndexPart2, IndexPart1, TheFooter, TheHeader},
+  components: {IndexPart3, IndexPart2, IndexPart1, TheFooter, TheHeader},
   setup() {
     const mq = useMediaQuery()
 
