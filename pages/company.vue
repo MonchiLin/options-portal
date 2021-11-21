@@ -7,6 +7,9 @@
       <company-aboutus-part3/>
       <company-aboutus-part4/>
       <company-aboutus-part5/>
+      <company-aboutus-part6/>
+      <company-aboutus-part7/>
+      <company-aboutus-part8/>
     </main>
     <the-footer/>
   </nuxt-layout>
@@ -21,9 +24,15 @@ import CompanyAboutusPart2 from "~/components/company/aboutus/company-aboutus-pa
 import CompanyAboutusPart3 from "~/components/company/aboutus/company-aboutus-part3.vue";
 import CompanyAboutusPart4 from "~/components/company/aboutus/company-aboutus-part4.vue";
 import CompanyAboutusPart5 from "~/components/company/aboutus/company-aboutus-part5.vue";
+import CompanyAboutusPart6 from "~/components/company/aboutus/company-aboutus-part6.vue";
+import CompanyAboutusPart7 from "~/components/company/aboutus/company-aboutus-part7.vue";
+import CompanyAboutusPart8 from "~/components/company/aboutus/company-aboutus-part8.vue";
 
 export default defineComponent({
   components: {
+    CompanyAboutusPart8,
+    CompanyAboutusPart7,
+    CompanyAboutusPart6,
     CompanyAboutusPart5,
     CompanyAboutusPart4,
     CompanyAboutusPart3,

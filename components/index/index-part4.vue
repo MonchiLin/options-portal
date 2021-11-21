@@ -1,7 +1,7 @@
 <template>
   <the-part
-      background-for-md="url(/index/part4/background_mobile.png)"
-      background="url(/index/part4/background.png)"
+      background-for-md="/index/part4/background_mobile.png"
+      background="/index/part4/background.png"
   >
     <div
         class="

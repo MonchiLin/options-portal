@@ -1,6 +1,6 @@
 <template>
   <section
-      :style="{backgroundImage: mq.mobile ? backgroundForMd : background, backgroundColor:backgroundColor}"
+      :style="{backgroundImage: `url(${mq.mobile ? backgroundForMd : background})`, backgroundColor:backgroundColor}"
       class="bg-cover w-screen flex flex-col items-center"
   >
     <slot/>

@@ -1,16 +1,17 @@
 <template>
   <the-part
-      background-color="white"
+      background="/company/aboutus/part7/bg.png"
+      background-for-md="/company/aboutus/part7/bg_m.png"
   >
     <div
         class="
-          <md:(py-[30px])
-          py-[60px]
-          flex items-center page-content flex-col h-auto
+          <md:(h-[1147px] pt-[20px] pb-[20px])
+          pt-[60px] pb-[30px] h-[452px]
+          flex items-center page-content flex-col h-auto text-white
         "
     >
 
-      <p class="<md:(text-[20px]) text-[35px] font-black text-[#0B132A] leading-[30px] text-center">
+      <p class="<md:(text-[20px]) text-[35px] font-black text-center">
         {{ text.t1 }}
       </p>
 
@@ -26,29 +27,26 @@
             v-for="(item, index) of cardData"
             :key="index"
             class="
-              <md:(w-100% mb-[10px])
-              flex items-center flex-col rounded-[20px]
+              <md:(w-100% mb-[10px] w-full)
+              w-[255px] h-[255px] pt-[20px] pb-[30px]
+              flex items-center flex-col relative
             "
         >
 
-          <img
+          <div
               class="
-                <md:(w-100% mb-[10px] w-[350px] h-[330px])
-                w-[350px] h-[300px]
+                <md:(w-100% mb-[10px])
+                w-[200px] bg-cover h-[142px] pt-[20px]
                 flex items-center flex-col rounded-[20px]
               "
-              :src="item.coverImage" alt="">
-
-          <div class="flex flex-row relative mt-[25px]">
-            <div style="border: 2px solid #EF7F3C;" class="relative top-[15px] w-[40px] h-1"/>
-            <div class="ml-[14px] relative">
-              <p class="text-[20px] leading-[32px]">{{ item.label }}</p>
-              <a :href="item.link" class="flex flex-row items-center relative w-full mt-[24px]">
-                <span>{{ text.t2 }}</span>
-                <ios-arrow-round-forward-icon class="pl-[8px] relative top-[2px]"/>
-              </a>
-            </div>
+              style="background-image: url('/company/aboutus/part7/wing.png')"
+              alt=""
+          >
+            <p>{{ item.text1 }}</p>
+            <p>{{ item.year }}</p>
           </div>
+
+          <p class="whitespace-pre-line text-center"> {{ item.description }} </p>
 
         </div>
 
@@ -79,27 +77,34 @@ export default defineComponent({
   setup() {
     const mq = useMediaQuery()
     const text = reactive({
-      t1: "Market News",
-      t2: "Continue Reading",
+      t1: "Winner of high-profile awards",
     })
 
     const cardData = [
       {
-        coverImage: "/index/part7/i1.png",
-        label: "It Does Not Matter Hows Slowly go as Long",
-        link: "/",
+        text1: "winner",
+        year: "2021",
+        description: "Word-class Online\n" +
+            "Trading Platform",
       },
       {
-        coverImage: "/index/part7/i2.png",
-        label: "It Does Not Matter Hows Slowly go as Long",
-        link: "/",
+        text1: "winner",
+        year: "2021",
+        description: "Best Trading\n" +
+            "Execution",
       },
       {
-        coverImage: "/index/part7/i3.png",
-        label: "It Does Not Matter Hows Slowly go as Long",
-        link: "/",
+        text1: "winner",
+        year: "2021",
+        description: "Highest Overall\n" +
+            "Customer Satisfaction",
       },
-
+      {
+        text1: "winner",
+        year: "2021",
+        description: "Best Platform\n" +
+            "Features",
+      },
     ]
 
     return {

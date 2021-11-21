@@ -1,55 +1,36 @@
 <template>
   <the-part
-      background-color="#FAFAFA"
+      background="/company/aboutus/part6/bg.png"
+      background-for-md="/company/aboutus/part6/bg_m.png"
   >
     <div
         class="
-          <md:(h-auto pt-[30px] pb-[15px])
-          pb-[30px] pt-[60px]
-          flex items-center page-content flex-col
+          <md:(h-auto pt-[27px] pb-[22px] h-[1873px])
+          pb-[60px] pt-[60px] h-[890px]
+          flex items-center page-content flex-col text-white
         "
     >
 
-      <p class="<md:(text-[20px]) text-[35px] font-black text-[#0B132A] leading-[30px] text-center">
-        {{ text.t1 }}
-      </p>
+      <h3 class="text-[35px] <md:(text:[20px]) font-black">{{ text.t1 }}</h3>
 
       <div
           class="
-            <md:(h-auto pt-[20px] flex-col)
-            pt-[60px] flex-row w-full
-            flex items-center justify-between
+            <md:(flex-col)
+            flex-row
+            w-full flex justify-between mt-[30px]
           "
       >
-
         <div
+            class="<md:(w-full mt-[30px]) flex flex-col w-[30%] items-center text-center relative"
             v-for="(item, index) of cardData"
             :key="index"
-            :class="[cardIndex === index]"
-            class="
-              <md:(w-100% mb-[10px])
-              w-[350px] h-[230px] px-[30px] py-[30px]
-              flex items-center flex-col border-[2px] rounded-[10px] border-[#DDDDDD] hover:bg-[white]
-            "
         >
-
-          <!--       头像-人名   -->
-          <div class="flex flex-row w-full">
-            <img :src="item.avatar" class="flex-shrink-0 w-[50px] h-[50px]" alt="">
-            <div class="flex-1 flex flex-col ml-[17px]">
-              <p>{{ item.name }}</p>
-              <p>{{ item.jobTitle }}</p>
-            </div>
-          </div>
-          <!--        描述  -->
-
-          <p class="mt-[20px] text-[16px] leading-[30px]">{{ item.description }}</p>
-
+          <p class="text-[72px] opacity-10 font-black">{{ item.year }}</p>
+          <p class="relative top-[-26px]">{{ item.title }}</p>
+          <p class="whitespace-pre-line">{{ item.description }}</p>
         </div>
-
       </div>
 
-      <pagintion class="mt-[20px]" v-model:page-index="paging.pageIndex" :page-total="paging.pageTotal"/>
     </div>
   </the-part>
 </template>
@@ -76,44 +57,32 @@ export default defineComponent({
   setup() {
     const mq = useMediaQuery()
     const text = reactive({
-      t1: "We are only as GOOD as our clients say WE ARE",
+      t1: "Our future plans",
     })
 
     const cardData = [
       {
-        name: "Gulam sarwar",
-        jobTitle: "Dubai",
-        avatar: "/index/part6/avatar1.png",
-        description: " Receive 30,000 rupees for free, which disappoints me! Now I rely on the steady option platform to get a stable income! ",
+        year: "2021",
+        title: "Annual Plan",
+        description: "In February,the Steady Global Launch Conference was held in Vancouver to announce the official launch into the Asian market.Thank you for your quality customers and excellent employees,and invite quality guests to participate in the annual Steady Event. \n \n As the SteadyGroup's global user capacity continues to grow,the company will offer better rewards to outstanding traders and clients,with more talented people to provide customers with a richer and more diversified investment strategy.",
       },
       {
-        name: "Sikha Devi",
-        jobTitle: "Sydney",
-        avatar: "/index/part6/avatar2.png",
-        description: " Great! My investment is making a profit, and I hope that the platform can add more new financial products! ",
+        year: "2022",
+        title: "Annual Plan",
+        description: "Steady Group not only specializes in foreign exchange,in the future, if it finds outstanding enterprises in other areas of investment landmarks, does not rule out the establishment of new trading teams or corporate cooperation, so that investors in other areas can also get a sound and sound investment strategy,diversified investment options can also attract more investors' attention. \n \n Participating in the regional financial fairs, so that more investors can see the strength of the Steady Group,while the exhibitors with the enterprises to communicate,to provide customers with better service quality. After the global outbreak control,the company will plan to hold a grand awards and commendation conference in the United Kingdom,and invite members to visit the Steady Group Canada-UK National Transport headquarters",
       },
       {
-        name: "Manoj Jagtap",
-        jobTitle: "Thailand",
-        avatar: "/index/part6/avatar3.png",
-        description: "After using it for a while, I feel that this is the financial product I want ",
+        year: "2023",
+        title: "Annual Plan",
+        description: "In the future,we will cooperate with the company's global exchange market development map, in addition to the UK headquarters,we will be in the global market development of excellent countries to set up new offices to serve the vast number of Steady group customers around the world. \n \n At the end of 2023,the Steady Group will hold a grand annual meeting and commendation conference in Dubai,the company 's senior management will attend this grand annual dubai commendation conference, in a luxurious country to enjoy the glory brought to us by the Steady Group,the time to invite the world's outstanding leaders to celebrate.",
       },
 
     ]
-
-    const cardIndex = ref(0)
-
-    const paging = reactive({
-      pageIndex: 1,
-      pageTotal: 4
-    })
 
     return {
       mq,
       text,
       cardData,
-      paging,
-      cardIndex
     }
   }
 })
