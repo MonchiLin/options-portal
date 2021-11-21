@@ -4,11 +4,11 @@ export default {
 			'primary': "#18191F",
 			'secondary': "#171648",
 			'orange': "#EF7F3C",
-			'white': "white",
+			'white': "#FFFFFF",
 			'blue': "#217BF4",
 		}),
 		backgroundColor: theme => ({
-			'white': 'white',
+			'white': '#FFFFFF',
 			'blue': "#217BF4",
 			'orange': "#EF7F3C",
 		}),

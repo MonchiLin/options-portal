@@ -6,10 +6,10 @@ export default defineNuxtConfig({
     'nuxt-windicss',
   ],
   css: [
-    // 'primevue/resources/themes/saga-blue/theme.css',
+    'primevue/resources/themes/saga-blue/theme.css',
     'primevue/resources/primevue.css',
     // 'primeicons/primeicons.css',
 
     '@/assets/css/main.scss',
-  ],
+  ]
 })

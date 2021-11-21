@@ -28,7 +28,7 @@
         <ul class="mt-[30px] text-secondary font-medium">
           <li v-for="item of text.t4" :key="item" class="flex flex-row items-center">
             <div class="h-full self-start mt-[3px]">
-              <index-part2-blue-pointer/>
+              <blue-pointer/>
             </div>
             <span class="pl-[12px]">{{item}}</span>
           </li>
@@ -71,14 +71,14 @@
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import { useMediaQuery } from "~/utils/shared";
-import IndexPart2BluePointer from "./index-part2-blue-pointer.vue";
+import BluePointer from "../blue-pointer.vue";
 import { reactive } from "vue";
 import ThePart from "~/components/the-part.vue";
 
 export default defineComponent({
   components: {
     ThePart,
-    IndexPart2BluePointer
+    BluePointer
   },
   setup() {
     const mq = useMediaQuery()

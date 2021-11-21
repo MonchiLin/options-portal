@@ -55,7 +55,7 @@
             flex flex-wrap mt-[30px] w-full relative
           "
       >
-        <panel
+        <prime-panel
             class="
               <md:(w-full mb-[10px])
               w-[45%] mb-[30px]
@@ -101,7 +101,7 @@
             </div>
           </div>
 
-        </panel>
+        </prime-panel>
       </div>
 
     </div>
@@ -111,17 +111,13 @@
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import { useMediaQuery } from "~/utils/shared";
-import IndexPart2BluePointer from "./index-part2-blue-pointer.vue";
 import { reactive } from "vue";
 import ThePart from "~/components/the-part.vue";
-import Panel from 'primevue/panel'
 import isNil from 'lodash-es/isNil'
 
 export default defineComponent({
   components: {
     ThePart,
-    IndexPart2BluePointer,
-    Panel
   },
   setup() {
     const mq = useMediaQuery()
