@@ -15,7 +15,7 @@
         </h1>
       </div>
 
-      <div class="<md:hidden flex-1">
+      <div class="<md:hidden flex-1 flex flex-row">
         <template v-for="(item, index) of navs" :key="item.title">
           <a
               :class="[activeRouteIndex === index ? 'text-orange' : 'text-white','md:pl-[20px]', 'pl-[32px]']"
@@ -25,7 +25,10 @@
               {{ item.title }}
             </template>
             <template v-else-if="item.linkKind === 'dropdown'">
-              <span @click="onMenuClick($event, item.menus)">{{ item.title }} v</span>
+              <div class="flex flex-row items-center" @click="onMenuClick($event, item.menus)">
+                <span>{{ item.title }}</span>
+                <ios-arrow-down-icon class="mt-[5px]" :style="{fill: activeRouteIndex === index ? '#EF7F3C' : 'white'}"/>
+              </div>
             </template>
           </a>
         </template>
@@ -49,7 +52,15 @@
               class="text-[30px] pt-[57px]"
               :href="item.link"
           >
-            {{ item.title }}
+            <template v-if="item.linkKind === 'link'">
+              {{ item.title }}
+            </template>
+            <template v-else-if="item.linkKind === 'dropdown'">
+              <div class="flex flex-row items-center" @click="onMenuClick($event, item.menus)">
+                <span>{{ item.title }}</span>
+                <ios-arrow-down-icon class="pt-[16px]" :style="{fill: activeRouteIndex === index ? '#EF7F3C' : 'white'}"/>
+              </div>
+            </template>
           </a>
         </template>
 
@@ -60,7 +71,7 @@
       </div>
     </sidebar>
 
-    <prime-menu class="mt-[20px]" :model="menus" popup ref="menuRef"/>
+    <prime-menu :baseZIndex="1100" appendTo="#root" class="mt-[20px]" :model="menus" popup ref="menuRef"/>
 
   </header>
 </template>
@@ -72,12 +83,16 @@ import { useRoute } from "vue-router";
 import Sidebar from 'primevue/sidebar';
 import Menu from 'primevue/menu';
 import OverlayPanel from 'primevue/overlaypanel';
+import IosArrowDownIcon from 'vue-ionicons/dist/ios-arrow-down.vue'
+import Popover from 'ant-design-vue/lib/popover'
 
 export default defineComponent({
   components: {
     Sidebar,
     "prime-menu": Menu,
-    OverlayPanel
+    OverlayPanel,
+    IosArrowDownIcon,
+    Popover
   },
   setup() {
     const mq = useMediaQuery()
@@ -129,6 +144,7 @@ export default defineComponent({
 
     const onMenuClick = (event, newMenus) => {
       menus.value = newMenus
+      console.log(event)
       nextTick(() => {
         menuRef.value.show(event)
       })
