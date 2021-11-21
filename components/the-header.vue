@@ -5,7 +5,6 @@
   >
     <div
         class="page-content flex flex-row items-center <md:justify-between justify-center h-[72px]"
-        :style="{ zIndex: visible ? 10000 : 1 }"
     >
 
       <div class="flex flex-row items-center">
@@ -16,22 +15,13 @@
       </div>
 
       <div class="<md:hidden flex-1 flex flex-row">
-        <template v-for="(item, index) of navs" :key="item.title">
-          <a
-              :class="[activeRouteIndex === index ? 'text-orange' : 'text-white','md:pl-[20px]', 'pl-[32px]']"
-              :href="item.link"
-          >
-            <template v-if="item.linkKind === 'link'">
-              {{ item.title }}
-            </template>
-            <template v-else-if="item.linkKind === 'dropdown'">
-              <div class="flex flex-row items-center" @click="onMenuClick($event, item.menus)">
-                <span>{{ item.title }}</span>
-                <ios-arrow-down-icon class="mt-[5px]" :style="{fill: activeRouteIndex === index ? '#EF7F3C' : 'white'}"/>
-              </div>
-            </template>
-          </a>
-        </template>
+        <header-item
+            v-for="(item, index) of navs"
+            :key="item.title"
+            :index="index"
+            :active-route-index="activeRouteIndex"
+            :item="item"
+        />
       </div>
 
       <button
@@ -44,25 +34,31 @@
 
     </div>
 
-    <sidebar :base-z-index="1000" position="full" v-model:visible="visible">
-      <div class="w-screen min-h-screen bg-blue relative pt-[60px] pb-[70px] flex flex-col items-center">
-        <template v-for="(item, index) of navs" :key="item.title">
-          <a
-              :class="[activeRouteIndex === index ? 'text-orange' : 'text-white']"
-              class="text-[30px] pt-[57px]"
-              :href="item.link"
-          >
-            <template v-if="item.linkKind === 'link'">
-              {{ item.title }}
-            </template>
-            <template v-else-if="item.linkKind === 'dropdown'">
-              <div class="flex flex-row items-center" @click="onMenuClick($event, item.menus)">
-                <span>{{ item.title }}</span>
-                <ios-arrow-down-icon class="pt-[16px]" :style="{fill: activeRouteIndex === index ? '#EF7F3C' : 'white'}"/>
-              </div>
-            </template>
-          </a>
-        </template>
+    <sidebar :closable="false" position="full" v-model:visible="visible">
+      <div class="w-full  bg-blue flex flex-row items-center justify-center">
+        <div
+            class="page-content flex flex-row items-center justify-between h-[72px]"
+        >
+          <div class="flex flex-row items-center">
+            <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
+            <h1 class="pl-[12px] text-white">
+              <a href="/">QIQUAN</a>
+            </h1>
+          </div>
+          <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]"
+               src="/the-header/icons8-menu_rounded.png" alt="">
+        </div>
+      </div>
+
+      <div class="w-screen min-h-screen bg-blue relative flex flex-col items-center">
+        <header-item
+            v-for="(item, index) of navs"
+            :key="item.title"
+            :index="index"
+            :active-route-index="activeRouteIndex"
+            :item="item"
+            class="text-[30px] pt-[57px]"
+        />
 
         <button
             class="mt-[60px] font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white width-[136px] rounded-[6px] text-[#2368E1]">
@@ -71,45 +67,41 @@
       </div>
     </sidebar>
 
-    <prime-menu :baseZIndex="1100" appendTo="#root" class="mt-[20px]" :model="menus" popup ref="menuRef"/>
-
   </header>
 </template>
 
 <script lang="ts">
 import { useMediaQuery } from "~/utils/shared";
-import { reactive, defineComponent, computed, ref, nextTick } from "vue";
+import { computed, defineComponent, nextTick, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
-import Sidebar from 'primevue/sidebar';
-import Menu from 'primevue/menu';
 import OverlayPanel from 'primevue/overlaypanel';
+import Sidebar from 'primevue/sidebar';
 import IosArrowDownIcon from 'vue-ionicons/dist/ios-arrow-down.vue'
-import Popover from 'ant-design-vue/lib/popover'
+import HeaderItem from "~/components/the-header/header-item.vue";
 
 export default defineComponent({
   components: {
-    Sidebar,
-    "prime-menu": Menu,
+    HeaderItem,
     OverlayPanel,
     IosArrowDownIcon,
-    Popover
+    Sidebar
   },
   setup() {
     const mq = useMediaQuery()
     const navs = reactive([
       {title: "Home", linkKind: "link", link: "/"},
       {
-        title: "Company", linkKind: "dropdown", link: "#",
+        title: "Company", linkKind: "dropdown", link: "/company",
         menus: [
-          {label: "ABOUT US", url: "/company/aboutus", icon: ""},
-          {label: "FAQ", url: "/company/faq", icon: ""},
-          {label: "Contact us", url: "/company/contractus", icon: ""},
-          {label: "Group tructure", url: "/company/groupstructure", icon: ""},
+          {label: "ABOUT US", href: "/company/aboutus", isActive: s => s.includes("aboutus")},
+          {label: "FAQ", href: "/company/faq", isActive: s => s.includes("faq")},
+          {label: "Contact US", href: "/company/contractus", isActive: s => s.includes("contractus")},
+          {label: "Group Tructure", href: "/company/groupstructure", isActive: s => s.includes("groupstructure")},
         ]
       },
-      {title: "Download", linkKind: "link", link: "download"},
-      {title: "Products", linkKind: "link", link: "products"},
-      {title: "News", linkKind: "link", link: "news"},
+      {title: "Download", linkKind: "link", link: "/download"},
+      {title: "Products", linkKind: "link", link: "/products"},
+      {title: "News", linkKind: "link", link: "/news"},
     ])
     const visible = ref(false)
 
@@ -171,6 +163,10 @@ export default defineComponent({
 }
 
 .p-sidebar .p-sidebar-content {
+  padding: 0;
+}
+
+.ant-drawer-body {
   padding: 0;
 }
 

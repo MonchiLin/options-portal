@@ -10,8 +10,6 @@ export default defineNuxtConfig({
     'primevue/resources/primevue.css',
     // 'primeicons/primeicons.css',
 
-    'ant-design-vue/lib/popover/style/index.css',
-
     '@/assets/css/main.scss',
   ]
 })

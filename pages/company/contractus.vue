@@ -1,4 +1,4 @@
 <script lang="ts">
-export * from './index.vue'
+export * from './company.vue'
 
 </script>
