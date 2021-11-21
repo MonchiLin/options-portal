@@ -5,7 +5,7 @@
   >
     <div
         class="
-          <md:(flex-col pb-[34px] h-[700px] justify-start)
+          <md:(flex-col pb-[34px] h-[700px] justify-start pt-[87px])
           h-[600px] justify-between flex-row
           page-content flex items-center text-white
         "

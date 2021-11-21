@@ -1,6 +1,6 @@
 <template>
   <section
-      :style="{backgroundImage: mq.mobile ? backgroundForMd : background}"
+      :style="{backgroundImage: mq.mobile ? backgroundForMd : background, backgroundColor:backgroundColor}"
       class="bg-cover w-screen flex flex-col items-center"
   >
     <slot/>
@@ -18,6 +18,10 @@ export default defineComponent({
       required: false
     },
     background: {
+      type: String,
+      required: false
+    },
+    backgroundColor: {
       type: String,
       required: false
     },

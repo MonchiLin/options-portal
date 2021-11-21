@@ -9,8 +9,8 @@
       <div
           v-for="(_, index) of pageTotal"
           :key="index"
-          class="rounded-full h-[15px] w-[15px] ml-[15px] transition-all duration-400"
-          :class="[index === pageIndex - 1 ? 'w-[40px] bg-orange' : 'bg-[#DDE0E4]']"
+          class="rounded-full h-[15px] ml-[15px] transition-all duration-400"
+          :class="[index === pageIndex - 1 ? 'w-[40px] bg-orange' : 'w-[15px] bg-[#DDE0E4]']"
       />
     </div>
 

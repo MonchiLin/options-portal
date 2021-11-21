@@ -1,12 +1,15 @@
 <template>
   <nuxt-layout name="layout">
-<!--    <the-header/>-->
+    <the-header/>
     <main class="flex flex-col w-full">
-<!--      <index-part1/>-->
-<!--      <index-part2/>-->
-<!--      <index-part3/>-->
-<!--      <index-part4/>-->
+      <index-part1/>
+      <index-part2/>
+      <index-part3/>
+      <index-part4/>
       <index-part5/>
+      <index-part6/>
+      <index-part7/>
+      <index-part8/>
     </main>
     <the-footer/>
   </nuxt-layout>
@@ -22,9 +25,15 @@ import IndexPart2 from "~/components/index/index-part2.vue";
 import IndexPart3 from "~/components/index/index-part3.vue";
 import IndexPart4 from "~/components/index/index-part4.vue";
 import IndexPart5 from "~/components/index/index-part5.vue";
+import IndexPart6 from "~/components/index/index-part6.vue";
+import IndexPart7 from "~/components/index/index-part7.vue";
+import IndexPart8 from "~/components/index/index-part8.vue";
+import { onMounted } from "vue";
 
 export default defineComponent({
-  components: {IndexPart5, IndexPart4, IndexPart3, IndexPart2, IndexPart1, TheFooter, TheHeader},
+  components: {
+    IndexPart8,
+    IndexPart7, IndexPart6, IndexPart5, IndexPart4, IndexPart3, IndexPart2, IndexPart1, TheFooter, TheHeader},
   setup() {
     const mq = useMediaQuery()
 

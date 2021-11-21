@@ -9,7 +9,7 @@
     >
 
       <div class="flex flex-row items-center">
-        <img src="assets/the-header/logo.png" class="w-[28px] h-[28px]"/>
+        <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
         <h1 class="pl-[12px] text-white">
           <a href="/">QIQUAN</a>
         </h1>
@@ -31,7 +31,7 @@
         Open Account
       </button>
 
-      <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]" src="assets/the-header/icons8-menu_rounded.png" alt="">
+      <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]" src="/the-header/icons8-menu_rounded.png" alt="">
 
     </div>
 
