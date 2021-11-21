@@ -21,7 +21,12 @@
               :class="[activeRouteIndex === index ? 'text-orange' : 'text-white','md:pl-[20px]', 'pl-[32px]']"
               :href="item.link"
           >
-            {{ item.title }}
+            <template v-if="item.linkKind === 'link'">
+              {{ item.title }}
+            </template>
+            <template v-else-if="item.linkKind === 'dropdown'">
+              <span @click="onMenuClick($event, item.menus)">{{ item.title }} v</span>
+            </template>
           </a>
         </template>
       </div>
@@ -31,12 +36,13 @@
         Open Account
       </button>
 
-      <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]" src="/the-header/icons8-menu_rounded.png" alt="">
+      <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]"
+           src="/the-header/icons8-menu_rounded.png" alt="">
 
     </div>
 
     <sidebar :base-z-index="1000" position="full" v-model:visible="visible">
-      <div class="w-screen min-h-screen bg-blue relative top-[60px] pb-[70px] flex flex-col items-center">
+      <div class="w-screen min-h-screen bg-blue relative pt-[60px] pb-[70px] flex flex-col items-center">
         <template v-for="(item, index) of navs" :key="item.title">
           <a
               :class="[activeRouteIndex === index ? 'text-orange' : 'text-white']"
@@ -53,24 +59,39 @@
         </button>
       </div>
     </sidebar>
+
+    <prime-menu class="mt-[20px]" :model="menus" popup ref="menuRef"/>
+
   </header>
 </template>
 
 <script lang="ts">
 import { useMediaQuery } from "~/utils/shared";
-import { reactive, defineComponent, computed, ref } from "vue";
+import { reactive, defineComponent, computed, ref, nextTick } from "vue";
 import { useRoute } from "vue-router";
 import Sidebar from 'primevue/sidebar';
+import Menu from 'primevue/menu';
+import OverlayPanel from 'primevue/overlaypanel';
 
 export default defineComponent({
   components: {
-    Sidebar
+    Sidebar,
+    "prime-menu": Menu,
+    OverlayPanel
   },
   setup() {
     const mq = useMediaQuery()
     const navs = reactive([
       {title: "Home", linkKind: "link", link: "/"},
-      {title: "Company", linkKind: "dropdown", link: "#"},
+      {
+        title: "Company", linkKind: "dropdown", link: "#",
+        menus: [
+          {label: "ABOUT US", url: "", icon: ""},
+          {label: "FAQ", url: "", icon: ""},
+          {label: "Contact us", url: "", icon: ""},
+          {label: "Group tructure", url: "", icon: ""},
+        ]
+      },
       {title: "Download", linkKind: "link", link: "download"},
       {title: "Products", linkKind: "link", link: "products"},
       {title: "News", linkKind: "link", link: "news"},
@@ -91,12 +112,25 @@ export default defineComponent({
       visible.value = !visible.value
     }
 
+    const menuRef = ref(null)
+    const menus = ref([])
+
+    const onMenuClick = (event, newMenus) => {
+      menus.value = newMenus
+      nextTick(() => {
+        menuRef.value.show(event)
+      })
+    }
+
     return {
       mq,
       navs,
       activeRouteIndex,
       handleMenuClick,
-      visible
+      visible,
+      menus,
+      onMenuClick,
+      menuRef
     }
   }
 })
@@ -104,6 +138,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.p-sidebar-header {
+  display: none;
+}
 
+.p-sidebar .p-sidebar-content {
+  padding: 0;
+}
 
 </style>
