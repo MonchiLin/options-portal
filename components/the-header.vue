@@ -86,10 +86,10 @@ export default defineComponent({
       {
         title: "Company", linkKind: "dropdown", link: "#",
         menus: [
-          {label: "ABOUT US", url: "", icon: ""},
-          {label: "FAQ", url: "", icon: ""},
-          {label: "Contact us", url: "", icon: ""},
-          {label: "Group tructure", url: "", icon: ""},
+          {label: "ABOUT US", url: "/company/aboutus", icon: ""},
+          {label: "FAQ", url: "/company/faq", icon: ""},
+          {label: "Contact us", url: "/company/contractus", icon: ""},
+          {label: "Group tructure", url: "/company/groupstructure", icon: ""},
         ]
       },
       {title: "Download", linkKind: "link", link: "download"},
@@ -104,6 +104,18 @@ export default defineComponent({
       const path = route.path
       if (path === "/" || path === "/index") {
         return 0
+      }
+      if (path.includes("company")) {
+        return 1
+      }
+      if (path.includes("download")) {
+        return 2
+      }
+      if (path.includes("products")) {
+        return 3
+      }
+      if (path.includes("news")) {
+        return 4
       }
       return 0
     })
