@@ -2,57 +2,13 @@
   <the-part
       background-color="white"
   >
-    <div
+    <the-locations-and-building
         class="
-          <md:(py-[24px])
-          flex-col py-[40px]
+          <md:(pb-[24px])
+          flex-col pb-[40px]
           flex page-content
         "
-    >
-      <div class="<md:(py[24px] flex-col-reverse) flex flex-row">
-
-        <div
-            class="
-            <md:(w-full)
-            w-[50%]
-            flex flex-col
-          "
-        >
-
-          <div
-              v-for="(item, index) of locations"
-              :key="index"
-              class="flex flex-row items-center mt-[30px]"
-          >
-            <img class="w-[24px] h-[24px] self-start" src="/company/contractus/part3/Location.png" alt="">
-            <div class="flex flex-col ml-[16px]">
-              <p class="text-[18px] font-black text-primary">{{ item.name }}</p>
-              <p class="mt-[10px] text-[18px] text-secondary">{{ item.location }}</p>
-            </div>
-          </div>
-
-        </div>
-
-        <img class="<md:(w-full) w-[500px] h-[476px]" src="/company/contractus/part3/building.png" alt="">
-
-      </div>
-
-      <div class="flex flex-row mt-[20px] items-center flex-wrap <md:(flex-col items-start)">
-        <span class="text-[16px] font-black">{{ text.t1 }}</span>
-        <div class="pl-[68px] flex flex-row items-center <md:(pl-0 mt-[16px])">
-          <img
-              style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
-              class="w-[34px] h-[34px]" src="/company/contractus/part3/Facebook.png" alt="">
-          <img
-              style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08));"
-              class="ml-[20px] w-[34px] h-[34px]" src="/company/contractus/part3/chat.png" alt="">
-          <img
-              style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
-              class="ml-[20px] w-[34px] h-[34px]" src="/company/contractus/part3/Twitter.png" alt="">
-        </div>
-      </div>
-
-    </div>
+    />
   </the-part>
 </template>
 
@@ -62,9 +18,11 @@ import { useMediaQuery } from "~/utils/shared";
 import { reactive } from "vue";
 import ThePart from "~/components/the-part.vue";
 import isNil from 'lodash-es/isNil'
+import TheLocationsAndBuilding from "~/components/the-locations-and-building.vue";
 
 export default defineComponent({
   components: {
+    TheLocationsAndBuilding,
     ThePart,
   },
   setup() {

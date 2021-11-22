@@ -2,33 +2,14 @@
   <the-part
       background-color="#FAFAFA"
   >
-    <div
+    <the-get-started
         class="
-          <md:(h-auto flex-col-reverse pt-[30px] pb-[32px])
-          flex items-center page-content flex-row
+          <md:(h-auto pt-[30px] pb-[32px])
+         page-content
         "
     >
 
-      <div class="<md:(ml-0 items-center) w-full flex flex-col justify-center h-full">
-        <p class="<md:(text-20px) text-35px font-black">{{ text.t1 }}</p>
-
-        <p class="<md:(mt-[18px]) mt-[18px]">{{ text.t2 }}</p>
-
-        <button class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
-          {{ text.t3 }}
-        </button>
-
-      </div>
-
-      <img
-          class="
-            <md:(h-auto flex-col)
-            w-[300px] h-[300px]
-          "
-          src="/company/aboutus/part8/Getstarted.png"
-      />
-
-    </div>
+    </the-get-started>
   </the-part>
 </template>
 
@@ -41,9 +22,11 @@ import Part5Card from "~/components/index/part5/part5-card.vue";
 import Part5CardBox from "~/components/index/part5/part5-card-box.vue";
 import Pagintion from "~/components/pagintion.vue";
 import IosArrowRoundForwardIcon from 'vue-ionicons/dist/ios-arrow-round-forward.vue'
+import TheGetStarted from "~/components/the-get-started.vue";
 
 export default defineComponent({
   components: {
+    TheGetStarted,
     Pagintion,
     Part5CardBox,
     Part5Card,
