@@ -25,7 +25,7 @@
       </div>
 
       <button
-          class="<md:hidden font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white width-[136px] rounded-[6px] text-[#2368E1]">
+          class="<md:hidden font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white rounded-[6px] text-[#2368E1]">
         Open Account
       </button>
 

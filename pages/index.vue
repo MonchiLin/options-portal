@@ -1,4 +1,9 @@
 <template>
+  <Html>
+  <Head>
+    <Title>QIQUAN-Home</Title>
+  </Head>
+  </Html>
   <nuxt-layout name="layout">
     <the-header/>
     <main class="flex flex-col w-full">

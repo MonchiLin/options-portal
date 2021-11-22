@@ -11,7 +11,7 @@
         "
     >
       <div class="flex flex-col w-50% <md:(w-full items-center)">
-        <h3 class="<md:(text-[24px]) text-[40px] leading-[60px] text-white font-black">{{ text.t1 }}</h3>
+        <h3 class="<md:(text-[24px] leading-[40px]) text-[40px] leading-[60px] text-white font-black">{{ text.t1 }}</h3>
         <h3 class="<md:(pt-[20px]) pt-[30px] text-[18px] leading-[28px] text-white opacity-80">{{ text.t2 }}</h3>
         <button
             class="<md:(mt-[42px]) text-[16px] leading-[24px] mt-[30px] w-[193px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">

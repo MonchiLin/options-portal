@@ -38,7 +38,7 @@
       <img
           src="/download/part2/phones.png"
           class="
-          <md:(mt-[38px] w-full h-[361px])
+          <md:(mt-[38px] w-full h-auto)
           w-[440px] h-[424px]
         "
           alt=""

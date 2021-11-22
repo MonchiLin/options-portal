@@ -1,4 +1,10 @@
 <template>
+  <Html>
+    <Head>
+      <Title>QIQUAN-Product</Title>
+    </Head>
+  </Html>
+
   <nuxt-layout name="layout">
     <the-header/>
     <main class="flex flex-col w-full">
@@ -15,6 +21,7 @@ import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
 import ProductsPart1 from "~/components/products/products-part1.vue";
 import ProductsPart2 from "~/components/products/products-part2.vue";
+import { useMeta } from "#meta";
 
 export default defineComponent({
   components: {
@@ -25,9 +32,7 @@ export default defineComponent({
   },
   setup() {
 
-    return {
-
-    }
+    return {}
   }
 })
 
