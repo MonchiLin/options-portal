@@ -1,6 +1,9 @@
 <template>
   <div
-      class="flex flex-row items-center justify-center <md:(w-full pl-0) pl-[32px]"
+      class="
+        <md:(text-[24px] pb-[40px])
+        flex flex-row items-center justify-center <md:(w-full pl-0) pl-[32px]
+      "
       :class="[activeRouteIndex === index ? 'text-orange' : 'text-white']"
   >
     <a :href="item.link" v-if="item.linkKind === 'link'">

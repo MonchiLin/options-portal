@@ -4,7 +4,7 @@
         class="
           <md:(flex-col pb-[30px] h-auto)
           h-auto pb-[60px]
-          flex items-center page-content flex-col
+          flex items-center page-content flex-col index-part3
         "
     >
 
@@ -198,16 +198,19 @@ export default defineComponent({
   box-shadow: 14px 22px 52px -12px rgba(127, 127, 127, 0.13);
   border-radius: 14px;
 }
-.p-panel.p-panel-toggleable .p-panel-header,
-.p-panel .p-panel-content
-{
-  padding: 0;
-  border: none;
-  background-color: white;
-}
 
-.p-panel-icons {
-  display: none;
+.index-part3 {
+  .p-panel.p-panel-toggleable .p-panel-header,
+  .p-panel .p-panel-content
+  {
+    padding: 0;
+    border: none;
+    background-color: white;
+  }
+
+  .p-panel-icons {
+    display: none;
+  }
 }
 
 </style>

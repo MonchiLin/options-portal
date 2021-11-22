@@ -5,6 +5,7 @@
         rounded-[6px] flex flex-row justify-between items-center h-[62px] px-[8px] py-[8px]
       "
       style="border: 1px solid #E8E9EB;"
+      :class="tabbarClass"
   >
     <div
         v-for="(item, i) of items"
@@ -13,7 +14,7 @@
           <md:(min-w-[80px] text-[12px])
           min-w-[148px] text-[16px] transition-all duration-400 h-full rounded-[6px] cursor-pointer flex justify-center items-center
         "
-        :class="[i === index ? 'text-secondary bg-white' : 'text-white ']"
+        :class="[i === index ? 'text-secondary bg-white' : 'text-white', tabbarItemClass, i === index ? tabbarItemActiveClass : tabbarItemUnActiveClass ]"
         @click="handleItemClick(i)"
     >
       {{ item }}
@@ -28,7 +29,23 @@ import { defineComponent, PropType } from "vue";
 export default defineComponent({
   props: {
     items: Array as PropType<string[]>,
-    index: Number
+    index: Number,
+    tabbarClass: {
+      type: [String, Array],
+      required: false
+    },
+    tabbarItemClass: {
+      type: [String, Array],
+      required: false
+    },
+    tabbarItemActiveClass: {
+      type: [String, Array],
+      required: false
+    },
+    tabbarItemUnActiveClass: {
+      type: [String, Array],
+      required: false
+    },
   },
   setup(props, {emit}) {
     const handleItemClick = (i) => {

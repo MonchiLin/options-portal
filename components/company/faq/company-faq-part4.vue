@@ -1,33 +1,32 @@
 <template>
   <the-part
-      background-color="#252B42"
+      background-color="#FAFAFA"
   >
     <div
         class="
-          <md:(h-[675px])
-          h-[761px] py-[60px]
-          flex items-center page-content flex-col
+          <md:(h-auto flex-col-reverse pt-[30px] pb-[32px])
+          flex items-center page-content flex-row
         "
     >
 
-      <tab-bar :items="tabItems" v-model:index="tabIndex"/>
+      <div class="<md:(ml-0 items-center) w-full flex flex-col justify-center h-full">
+        <p class="<md:(text-20px) text-35px font-black">{{ text.t1 }}</p>
 
-      <div
-          :style="{ backgroundImage: `url(${mq.mobile ? tabDetail.bgM : tabDetail.bg})` }"
-          class="
-            <md:(w-full h-[529px])
-            w-[1110px] h-[529px]  mt-[50px]
-            bg-cover flex items-end
-          "
-      >
-        <div
-            class="h-[163px] <md:(h-[50%] px-[20px]) w-full flex items-center justify-center px-[90px]"
-            style="background-color: rgba(0, 0, 0, 0.5);"
-        >
-          <p class="text-[16px] leading-[24px] <md:(leading-[22px]) text-white">{{ tabDetail.description }}</p>
-        </div>
+        <p class="<md:(mt-[18px]) mt-[18px]">{{ text.t2 }}</p>
+
+        <button class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
+          {{ text.t3 }}
+        </button>
 
       </div>
+
+      <img
+          class="
+            <md:(h-auto flex-col)
+            w-[300px] h-[300px]
+          "
+          src="/company/aboutus/part8/Getstarted.png"
+      />
 
     </div>
   </the-part>
@@ -36,56 +35,32 @@
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
 import { useMediaQuery } from "~/utils/shared";
-import { computed, reactive, ref } from "vue";
+import { reactive, ref } from "vue";
 import ThePart from "~/components/the-part.vue";
-import TabBar from "~/components/tab-bar.vue";
+import Part5Card from "~/components/index/part5/part5-card.vue";
+import Part5CardBox from "~/components/index/part5/part5-card-box.vue";
+import Pagintion from "~/components/pagintion.vue";
+import IosArrowRoundForwardIcon from 'vue-ionicons/dist/ios-arrow-round-forward.vue'
 
 export default defineComponent({
   components: {
-    TabBar,
-    ThePart
+    Pagintion,
+    Part5CardBox,
+    Part5Card,
+    ThePart,
+    IosArrowRoundForwardIcon
   },
   setup() {
     const mq = useMediaQuery()
-    const tabIndex = ref(0)
-    const tabItems = reactive([
-      "Technology",
-      "Team",
-      "Transparent",
-      "Trust",
-    ])
-
-    const tabDetails = reactive([
-      {
-        description: "Today, technology is one of the most important elements of investment and finance. We know that this is why we continue to improve our advanced technology based on the latest trends and solutions. Our goal is to make Steadyoption the most reliable and popular investment and wealth management platform in the market. \n",
-        bg: "/company/aboutus/part4/bg1.png",
-        bgM: "/company/aboutus/part4/bg1_m.png",
-      },
-      {
-        description: "Founded by traders with more than 30 years of experience, the company manages foreign exchange transactions at major Canadian banks such as Imperial Bank of Canada, Royal Bank of Canada and Bank of Canada. ",
-        bg: "/company/aboutus/part4/bg2.png",
-        bgM: "/company/aboutus/part4/bg2_m.png",
-      },
-      {
-        description: "Steadyoption provides advanced and efficient technical services and a stable investment and financial management trading platform. Servers are located on four continents, and Verisign is a global network security partner. The gateway uses advanced encryption technology up to 256 bits. Let each customer customize trading strategies in real time and view transaction records in real time. ",
-        bg: "/company/aboutus/part4/bg3.png",
-        bgM: "/company/aboutus/part4/bg3_m.png",
-      },
-      {
-        description: "Professional and dedicated, serving more than 30,000 individual and institutional clients worldwide, with a notorious reputation. SteadyTRADE FINANCE is a registered brand for England and Wales. ",
-        bg: "/company/aboutus/part4/bg4.png",
-        bgM: "/company/aboutus/part4/bg4_m.png",
-      },
-    ])
-
-    const tabDetail = computed(() => tabDetails[tabIndex.value])
+    const text = reactive({
+      t1: "Get started for free",
+      t2: "Choosing the best performing trader's trading strateg",
+      t3: "Open an account"
+    })
 
     return {
       mq,
-      tabIndex,
-      tabDetail,
-      tabItems,
-      tabDetails,
+      text
     }
   }
 })

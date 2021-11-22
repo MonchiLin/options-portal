@@ -1,27 +1,63 @@
 <template>
-  <the-part>
+  <the-part
+      background-for-md="/company/faq/part3/bg_m.png"
+      background="/company/faq/part3/bg.png"
+  >
     <div
         class="
-          <md:(flex-col pb-[30px] h-auto pb-[30px])
-          flex-row pb-[52px]
-          flex items-center justify-center page-content bg-white
+          <md:(pt-[20px] pb-[72px])
+          flex-col pt-[73px] pb-[158px]
+          flex justify-center page-content
         "
     >
-     <div class="flex flex-col w-[50%] <md:(w-full)">
-       <p class="font-black text-[35px] <md:(text-[20px])">
-         {{ text.t1 }}
-       </p>
-       <p class="mt-[20px] text-[16px] leading-[28px] <md:(text-[14px] leading-[20px])">
-         {{ text.t2 }}
-       </p>
-     </div>
-     <div class="ml-[42px] flex flex-row w-[50%] justify-between items-center <md:(w-full mt-[30px] ml-0)">
-       <img :src="images.i1" class="w-[281px] h-[422px] rounded-[6px] <md:(w-[40%] h-[200px])"/>
-       <div class="flex flex-col ml-[20px] <md:(ml-0)">
-         <img class="w-[290px] h-[255px] rounded-[6px] <md:(w-[100%] h-[140px])" :src="images.i2" alt="">
-         <img class="mt-[20px] w-[290px] h-[255px] rounded-[6px] <md:(w-[100%] h-[140px])" :src="images.i3" alt="">
-       </div>
-     </div>
+
+      <p class="text-[35px] leading-[72px] font-black <md:(text-[20px] leading-[24px])">{{ text.t1 }}</p>
+
+      <div
+        class="
+          <md:(flex-col justify-start)
+          flex flex-row pt-[30px] justify-between
+          w-full
+        "
+      >
+        <div
+            class="
+              <md:(w-full py-[5px] px-[5px])
+              w-[45%] py-[20px] px-[20px]
+              flex flex-row justify-center rounded-[14px]
+            "
+            style="box-shadow: 14px 22px 52px -12px rgba(127, 127, 127, 0.13);"
+        >
+          <img class="w-[76px] h-[76px]" :src="panels.p1.icon" alt="">
+          <div class="flex flex-col justify-center">
+            <p class="text-[24px] <md:(text-[12px])">{{ panels.p1.title }}</p>
+            <p class="text-[16px] pt-[10px] <md:(text-[10px])">{{ panels.p1.description }}</p>
+          </div>
+        </div>
+
+        <div
+            class="
+              <md:(w-full py-[5px] px-[5px] mt-[10px])
+              w-[45%] py-[20px] px-[20px]
+              flex flex-row justify-center rounded-[14px]
+            "
+            style="box-shadow: 14px 22px 52px -12px rgba(127, 127, 127, 0.13);"
+        >
+          <img class="w-[76px] h-[76px]" :src="panels.p2.icon" alt="">
+          <div class="flex flex-col justify-center">
+            <p class="text-[24px] <md:(text-[12px])">{{ panels.p2.title }}</p>
+            <p class="text-[16px] pt-[10px] <md:(text-[10px] pt-[6px])">
+              <a class="text-blue" href="mailto: steadyoption@yahoo.com">steadyoption@yahoo.com</a>
+              <span class="pl-[10px]">Send us your question</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button class="<md:(mt-[30px]) mt-[60px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
+        {{ text.t2 }}
+      </button>
+
     </div>
   </the-part>
 </template>
@@ -40,18 +76,25 @@ export default defineComponent({
   setup() {
     const mq = useMediaQuery()
     const text = reactive({
-      t1: "Who We Are?",
-      t2: "A leading Indian investment services company, Steadyoption has presence across UK and india,Sydney, Switzerland, London, Dubai, Hong Kong, Vietnam and Thailand. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. Along with traditional offerings, we have built a comprehensive portfolio of digital products and services. Our multi-channel distribution network comprising of branches, online portal, dedicated customer care and phone service caters to all the investment needs of the clients ",
+      t1: "Did not find the answer?  You can consult us.",
+      t2: "Contact us",
     })
 
-    const images = reactive({
-      i1: "/company/aboutus/part3/Image.png",
-      i2: "/company/aboutus/part3/Image-1.png",
-      i3: "/company/aboutus/part3/Image-2.png",
+    const panels = reactive({
+      p1: {
+        title: "Chat",
+        description: "PREFERRED SERVICE consultants available 24/5",
+        icon: "/company/faq/part3/Icon.png",
+      },
+      p2: {
+        title: "E-Mail",
+        description: "steadyoption@yahoo.com Send us your question",
+        icon: "/company/faq/part3/Icon-1.png",
+      },
     })
 
     return {
-      images,
+      panels,
       mq,
       text,
     }

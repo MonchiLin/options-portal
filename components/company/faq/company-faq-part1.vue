@@ -12,7 +12,7 @@
     >
 
       <h3 class="<md:(text-[34px]) text-[44px] leading-[75px] font-black">{{ text.t1 }}</h3>
-      <h4 class="<md:(text-[14px] leading-[28px]) text-[18px] leading-[28px] opacity-80 mt-[11px]">{{ text.t2 }}</h4>
+      <h4 class="<md:(text-[14px] leading-[28px]) text-[18px] leading-[28px] text-center opacity-80 mt-[11px]">{{ text.t2 }}</h4>
 
     </div>
   </the-part>
@@ -31,8 +31,9 @@ export default defineComponent({
   setup() {
     const mq = useMediaQuery()
     const text = reactive({
-      t1: "ABOUT US",
-      t2: "Partners for wealth creation",
+      t1: "FAQ",
+      t2: "We’ll help answer your questions so that you can\n" +
+          "get startedtrading today",
     })
 
     return {

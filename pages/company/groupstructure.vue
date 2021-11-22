@@ -1,4 +1,14 @@
+<template>
+  <index/>
+</template>
+
 <script lang="ts">
-export * from './company.vue'
+import Index from './index.vue'
+
+export default {
+  components: {
+    Index
+  }
+}
 
 </script>

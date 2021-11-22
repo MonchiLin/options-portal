@@ -34,36 +34,37 @@
 
     </div>
 
-    <sidebar :closable="false" position="full" v-model:visible="visible">
-      <div class="w-full  bg-blue flex flex-row items-center justify-center">
-        <div
-            class="page-content flex flex-row items-center justify-between h-[72px]"
-        >
-          <div class="flex flex-row items-center">
-            <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
-            <h1 class="pl-[12px] text-white">
-              <a href="/">QIQUAN</a>
-            </h1>
+    <sidebar :closable="false" position="top" v-model:visible="visible">
+      <div class="w-full bg-blue h-[90vh]">
+        <div class="flex flex-row items-center justify-center">
+          <div
+              class="page-content flex flex-row items-center justify-between h-[72px]"
+          >
+            <div class="flex flex-row items-center">
+              <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
+              <h1 class="pl-[12px] text-white">
+                <a href="/">QIQUAN</a>
+              </h1>
+            </div>
+            <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]"
+                 src="/the-header/icons8-menu_rounded.png" alt="">
           </div>
-          <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]"
-               src="/the-header/icons8-menu_rounded.png" alt="">
         </div>
-      </div>
 
-      <div class="w-screen min-h-screen bg-blue relative flex flex-col items-center">
-        <header-item
-            v-for="(item, index) of navs"
-            :key="item.title"
-            :index="index"
-            :active-route-index="activeRouteIndex"
-            :item="item"
-            class="text-[30px] pt-[57px]"
-        />
+        <div class="w-screen min-h-screen bg-blue relative flex flex-col items-center pt-[50px]">
+          <header-item
+              v-for="(item, index) of navs"
+              :key="item.title"
+              :index="index"
+              :active-route-index="activeRouteIndex"
+              :item="item"
+          />
 
-        <button
-            class="mt-[60px] font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white width-[136px] rounded-[6px] text-[#2368E1]">
-          Open Account
-        </button>
+          <button
+              class="mt-[t0px] font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white width-[136px] rounded-[6px] text-[#2368E1]">
+            Open Account
+          </button>
+        </div>
       </div>
     </sidebar>
 
@@ -166,8 +167,13 @@ export default defineComponent({
   padding: 0;
 }
 
-.ant-drawer-body {
-  padding: 0;
+//.p-sidebar.p-sidebar-full {
+//  height: 100vh;
+//  background: rgba(0, 0, 0, 0.3);
+//}
+
+.p-sidebar-top {
+  height: 90vh;
 }
 
 </style>
