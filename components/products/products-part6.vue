@@ -9,11 +9,11 @@
           bg-cover flex flex-col page-content text-primary
         "
     >
-      <h3 class="text-[35px] <md:(text-[20px] leading-[20px]) font-black">{{ text.t1 }}</h3>
+      <h3 class="text-center text-[35px] <md:(text-[20px] leading-[20px]) font-black">{{ text.t1 }}</h3>
 
       <img
-          src="/products/part2/trading.png"
-          class="w-full"
+          src="/products/part6/flow.png"
+          class="w-full mt-[67px] <md:(mt-20px)"
           alt=""
       />
 

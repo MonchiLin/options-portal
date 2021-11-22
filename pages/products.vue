@@ -8,12 +8,14 @@
   <nuxt-layout name="layout">
     <the-header/>
     <main class="flex flex-col w-full">
-      <products-part1/>
-      <products-part2/>
-      <products-part3/>
-      <products-part4/>
-      <products-part5/>
-      <products-part6/>
+<!--      <products-part1/>-->
+<!--      <products-part2/>-->
+<!--      <products-part3/>-->
+<!--      <products-part4/>-->
+<!--      <products-part5/>-->
+<!--      <products-part6/>-->
+<!--      <products-part7/>-->
+      <products-part8/>
     </main>
     <the-footer/>
   </nuxt-layout>
@@ -30,9 +32,13 @@ import ProductsPart3 from "~/components/products/products-part3.vue";
 import ProductsPart4 from "~/components/products/products-part4.vue";
 import ProductsPart5 from "~/components/products/products-part5.vue";
 import ProductsPart6 from "~/components/products/products-part6.vue";
+import ProductsPart7 from "~/components/products/products-part7.vue";
+import ProductsPart8 from "~/components/products/products-part8.vue";
 
 export default defineComponent({
   components: {
+    ProductsPart8,
+    ProductsPart7,
     ProductsPart6,
     ProductsPart5,
     ProductsPart4,
