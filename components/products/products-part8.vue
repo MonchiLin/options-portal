@@ -12,16 +12,16 @@
 
       <div
           class="
-          <md:(pt-[30px] justify-start px-[20px] ml-0)
-          ml-[47px]
-          flex flex-col justify-evenly
+          <md:(ml-0)
+          mt-[40px]
+          flex flex-col
         ">
 
         <h6 class="text-primary text-[35px] leading-[48px] font-black <md:(text-[20px] leading-[20px])">
           {{ text.t1 }}
         </h6>
-        <h5 class="whitespace-pre-line pt-[30px] text-[#18191F] text-[18px] leading-[32px] <md:(text-[14px] leading-[20px])">
-          {{ text.t2 }}</h5>
+
+        <the-stpes-style2 class="mt-[46px]" :steps="steps"/>
 
       </div>
 
@@ -72,9 +72,11 @@ import { useMediaQuery } from "~/utils/shared";
 import BluePointer from "../blue-pointer.vue";
 import { reactive } from "vue";
 import ThePart from "~/components/the-part.vue";
+import TheStpesStyle2 from "~/components/the-stpes-style2.vue";
 
 export default defineComponent({
   components: {
+    TheStpesStyle2,
     ThePart,
     BluePointer
   },
@@ -86,26 +88,26 @@ export default defineComponent({
       cardT2: "Get in touch, or create an account",
     })
 
-    const cardData = reactive([
+    const steps = reactive([
       {
         step: "Step 1",
         description: "Register as a Steadyoption member for free,then login or contact dedocated customer service",
-        image: "MaskGroup.png"
+        image: "/products/part8/MaskGroup.png"
       },
       {
         step: "Step 2",
         description: "After login,enter”Project”,select the documentary financial product that meets your requirements ,and invest",
-        image: "MaskGroup-1.png"
+        image: "/products/part8/MaskGroup-1.png"
       },
       {
         step: "Step 3",
         description: "After completing the investment enter”History”,you can view the order you are investing and the income and income details",
-        image: "MaskGroup-2.png"
+        image: "/products/part8/MaskGroup-2.png"
       },
       {
         step: "Step 4",
         description: "The income is settled to the account ever day,you dont need to operate,just wait for the income to arrive!",
-        image: "MaskGroup-3.png"
+        image: "/products/part8/MaskGroup-3.png"
       },
     ])
 
@@ -120,7 +122,7 @@ export default defineComponent({
     return {
       mq,
       text,
-      cardData,
+      steps,
       onClickDownload,
       onClickOpenAccount,
     }

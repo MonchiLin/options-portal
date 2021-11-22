@@ -8,13 +8,13 @@
   <nuxt-layout name="layout">
     <the-header/>
     <main class="flex flex-col w-full">
-<!--      <products-part1/>-->
-<!--      <products-part2/>-->
-<!--      <products-part3/>-->
-<!--      <products-part4/>-->
-<!--      <products-part5/>-->
-<!--      <products-part6/>-->
-<!--      <products-part7/>-->
+      <products-part1/>
+      <products-part2/>
+      <products-part3/>
+      <products-part4/>
+      <products-part5/>
+      <products-part6/>
+      <products-part7/>
       <products-part8/>
     </main>
     <the-footer/>
