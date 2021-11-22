@@ -14,7 +14,7 @@
         </h1>
       </div>
 
-      <div class="<md:hidden flex-1 flex flex-row">
+      <div class="<md:hidden flex-1 flex flex-row items-center">
         <header-item
             v-for="(item, index) of navs"
             :key="item.title"
