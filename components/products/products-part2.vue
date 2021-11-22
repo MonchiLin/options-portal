@@ -1,50 +1,40 @@
 <template>
   <the-part
-      background-for-md="/index/background_2_mobile.png"
-      background="/index/background_2.png"
+      background-color="white"
   >
     <div
         class="
-          <md:(flex-col pb-[34px] h-auto justify-start)
-          h-[816px] justify-between
-          bg-cover flex items-center page-content
+          <md:(flex-col pb-[30px] pt-[30px])
+          pt-[67px] pb-[60px]
+          bg-cover flex flex-col page-content text-primary
         "
     >
-      <div
-          class="
-          <md:(pt-[30px] justify-start px-[20px])
-          flex flex-col justify-evenly
-        ">
+      <h3 class="text-[35px] <md:(text-[20px] leading-[20px]) font-black">{{ text.t1 }}</h3>
+      <h4 class="pt-[30px] text-[18px] leading-[32px] <md:(text-[14px leading-[20px]])">{{ text.t2 }}</h4>
 
-        <h6 class="text-blue text-[16px]">{{ text.t1 }}</h6>
-        <h5 class="pt-[10px] text-primary text-[35px] font-black">{{ text.t2 }}</h5>
+      <div class="<md:(flex-col pt-[30px]) flex flex-row pt-[60px] items-end relative">
+        <div class="flex flex-col">
 
-        <ul class="mt-[30px] text-secondary font-medium">
-          <li v-for="item of text.t3" :key="item" class="flex flex-row items-center">
-            <div class="h-full self-start mt-[3px]">
-              <blue-pointer/>
-            </div>
-            <span class="pl-[12px]">{{item}}</span>
-          </li>
-        </ul>
+          <h3 class="text-[35px] <md:(text-[20px] leading-[20px]) font-black">{{ text.t3 }}</h3>
+          <h4 class="pt-[22px] pb-[30px] text-[18px] leading-[32px] <md:(text-[14px] leading-[20px])">{{ text.t4 }}</h4>
 
+        </div>
 
-        <!--   按钮   -->
-        <button
-            class="<md:(mt-[42px]) text-[16px] leading-[24px] mt-[30px] w-[193px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
-          {{ text.t4 }}
-        </button>
-
+        <img
+            src="/products/part2/person.png"
+            class="
+              <md:(absolute w-[45%] h-auto ml-0 right-0 opacity-40 bottom-0)
+              w-[345px] h-[476px] ml-[134px]
+            "
+            alt=""
+        >
       </div>
-
       <img
-          src="/index/phone-preview.png"
-          class="
-          <md:(mt-[38px])
-          w-[320px]
-        "
+          src="/products/part2/trading.png"
+          class="w-full"
           alt=""
-      >
+      />
+
     </div>
   </the-part>
 </template>
@@ -64,14 +54,13 @@ export default defineComponent({
   setup() {
     const mq = useMediaQuery()
     const text = reactive({
-      t1: "Success starts with the right platform",
-      t2: "A leading UK investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
-      t3: [
-        "Guarantee company underwriting risk",
-        "Zero taxes, guaranteed high yield",
-        "Regular or flexible investment at will",
-      ],
-      t4: "Download App"
+      t1: "About documentary financial management",
+      t2: "Steadyoption's documentary financial management has changed the rules of the game in the industry.\n" +
+          "Customers only need to purchase documentary financial products, and top traders perform transaction operations. This allows anyone to purchase documentary financial management to trade like top traders.",
+      t3: "With a single financial",
+      t4: "Documentary financial management is to follow the traders to complete their own investments. Every investment operation performed by traders is cautious, and their teams cooperate with each other to collect and provide the latest market trends and data, so that every transaction is full of confidence!\n" +
+          "\n" +
+          "Whether you are an investment beginner or an investment enthusiast who has no time to observe the market, you can now use the expertise of the SteadyOption platform traders to profit. On the SteadyOption platform, by purchasing documentary financial products, the system will automatically follow the operations of top traders based on the documentary financial products you purchase, and use the experience and data of top traders to help you make money.",
     })
 
     return {

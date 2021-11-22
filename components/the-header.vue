@@ -10,7 +10,7 @@
       <div class="flex flex-row items-center">
         <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
         <h1 class="pl-[12px] text-white">
-          <a href="/">QIQUAN</a>
+          <a href="/">QIQUAN</a >
         </h1>
       </div>
 

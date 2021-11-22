@@ -27,9 +27,11 @@
 
         {{ index + 1 }}
       </div>
-      <p class="text-[#18191F] text-[24px] leading-[30px] <md:(text-[24px] leading-[30px]) pt-[16px] font-medium">
-        {{ item.label }}</p>
-      <p class="text-secondary text-center pt-[16px] text-[16px] leading-[26px]">{{ item.description }}</p>
+      <slot name="item" :item="item">
+        <p class="text-[#18191F] text-[24px] leading-[30px] <md:(text-[24px] leading-[30px]) pt-[16px] font-medium">
+          {{ item.label }}</p>
+        <p class="text-secondary text-center pt-[16px] text-[16px] leading-[26px]">{{ item.description }}</p>
+      </slot>
     </div>
 
   </div>
