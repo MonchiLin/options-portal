@@ -3,9 +3,11 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "pre-depoly": "npm run build && node ./zip.js"
   },
   "devDependencies": {
+    "adm-zip": "^0.5.9",
     "nuxt-windicss": "^2.0.12",
     "nuxt3": "latest",
     "sass": "^1.43.4",
