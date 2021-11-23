@@ -42,8 +42,8 @@
               style="background-image: url('/company/aboutus/part7/wing.png')"
               alt=""
           >
-            <p>{{ item.text1 }}</p>
-            <p>{{ item.year }}</p>
+            <p class="font-black text-[25px]">{{ item.text1 }}</p>
+            <p class="text-[18px]">{{ item.year }}</p>
           </div>
 
           <p class="whitespace-pre-line text-center"> {{ item.description }} </p>

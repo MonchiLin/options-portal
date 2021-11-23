@@ -39,8 +39,8 @@
 
       <p
           class="
-            <md:(text-[20px] mt-[20px] leading-[20px] whitespace-normal leading-[20px])
-            text-[14px] mt-[30px] leading-[32px]
+            <md:(text-[14px] mt-[20px] leading-[20px] whitespace-normal)
+            text-[18px] mt-[30px] leading-[32px]
             text-primary whitespace-pre-line text-center
           "
       >
@@ -124,7 +124,7 @@ export default defineComponent({
     const text = reactive({
       t1: "We accept",
       t2: "Why Invest in Steadyoption?",
-      t3: "A leading UK investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & \n insurance, equity and derivatives, commodity, PMS and financial planning. ",
+      t3: "A leading UK investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
     })
 
     const paymentKinds = reactive([

@@ -10,7 +10,7 @@
         "
     >
 
-      <p class="<md:(text-[20px]) text-[35px] font-black text-[#0B132A] leading-[30px] text-center">
+      <p class="<md:(text-[20px] leading-[30px]) text-[35px] font-black text-[#0B132A] leading-[50px] text-center">
         {{ text.t1 }}
       </p>
 

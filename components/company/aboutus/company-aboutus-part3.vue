@@ -8,10 +8,10 @@
         "
     >
      <div class="flex flex-col w-[50%] <md:(w-full)">
-       <p class="font-black text-[35px] <md:(text-[20px])">
+       <p class="font-black text-[35px] <md:(text-center text-[20px])">
          {{ text.t1 }}
        </p>
-       <p class="mt-[20px] text-[16px] leading-[28px] <md:(text-[14px] leading-[20px])">
+       <p class="mt-[20px] text-[16px] leading-[28px] <md:(text-center text-[14px] leading-[20px])">
          {{ text.t2 }}
        </p>
      </div>

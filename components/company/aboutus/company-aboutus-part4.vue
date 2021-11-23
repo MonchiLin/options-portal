@@ -21,7 +21,7 @@
           "
       >
         <div
-            class="h-[163px] <md:(h-[50%] px-[20px]) w-full flex items-center justify-center px-[90px]"
+            class="h-[163px] <md:(min-h-[50%] h-auto py-[10px] px-[20px]) w-full flex items-center justify-center px-[90px]"
             style="background-color: rgba(0, 0, 0, 0.5);"
         >
           <p class="text-[16px] leading-[24px] <md:(leading-[22px]) text-white">{{ tabDetail.description }}</p>

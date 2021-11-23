@@ -36,7 +36,7 @@
 
       <div v-show="tabIndex === 2" class="w-full">
         <p class="text-center text-[35px] text-primary font-black <md:(text-[20px])">{{ part3Text.t1 }}</p>
-        <p class="text-[18px] leading-[32px] mt-[30px] text-primary <md:(text-[14px] leading-[28px] mt-[20px])">{{ part3Text.t2 }}</p>
+        <p class="whitespace-pre-line text-[18px] leading-[32px] mt-[30px] text-primary <md:(text-[14px] leading-[28px] mt-[20px])">{{ part3Text.t2 }}</p>
       </div>
 
 

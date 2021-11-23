@@ -8,7 +8,7 @@
     <div
         @click="handlePrevClick"
         class="button-paging-control bg-[#F6F6F6] h-[45px] w-[45px] ml-[20px] flex flex-row items-center justify-center"
-        :class="[hasPrev && 'button-paging-control--active bg-orange']"
+        :class="[hasPrev && 'button-paging-control--active']"
     >
       <ios-arrow-round-back-icon w="30px" h="30px"/>
     </div>
@@ -25,7 +25,7 @@
     <div
         @click="handleNextClick"
         class="button-paging-control bg-[#F6F6F6] h-[45px] w-[45px] ml-[10px] flex flex-row items-center justify-center"
-        :class="[hasNext && 'button-paging-control--active bg-orange']"
+        :class="[hasNext && 'button-paging-control--active']"
     >
       <ios-arrow-round-forward-icon w="30px" h="30px"/>
     </div>

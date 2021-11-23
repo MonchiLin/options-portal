@@ -12,7 +12,7 @@
     >
       <div
           class="
-          <md:(pt-[30px] justify-start px-[20px])
+          <md:(pt-[20px] justify-start)
           flex flex-col justify-evenly
         ">
 
@@ -38,8 +38,9 @@
         <!--   按钮   -->
         <div
             class="
-            mt-[42px] flex flex-row items-center
-          "
+              <md:(justify-between)
+              mt-[42px] flex flex-row items-center
+            "
         >
           <button
               class="

@@ -26,7 +26,7 @@
             :key="index"
         >
           <p class="text-[72px] opacity-10 font-black">{{ item.year }}</p>
-          <p class="relative top-[-26px]">{{ item.title }}</p>
+          <p class="relative top-[-26px] text-[18px]">{{ item.title }}</p>
           <p class="whitespace-pre-line">{{ item.description }}</p>
         </div>
       </div>

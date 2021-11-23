@@ -49,7 +49,7 @@
           </div>
         </template>
 
-        <div class="opacity-70 text-primary">
+        <div class="opacity-70 text-primary w-[75%] <md:(w-full)">
           {{ item.description }}
         </div>
 

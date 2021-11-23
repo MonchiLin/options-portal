@@ -14,6 +14,10 @@
 
       <the-stpes :steps="steps"/>
 
+      <button
+          class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
+        {{ text.t2 }}
+      </button>
     </div>
   </the-part>
 </template>
@@ -36,7 +40,7 @@ export default defineComponent({
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Ready to trade?",
-      t2: "Open an account"
+      t2: "Open an account",
     })
 
     const steps = reactive([

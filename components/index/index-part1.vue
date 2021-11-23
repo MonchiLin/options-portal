@@ -39,7 +39,7 @@
         </div>
         <p
             class="
-            <md:(pt-[35px] text-[14px] w-[238px] leading-[24px])
+            <md:(pt-[35px] text-[14px] w-[238px] leading-[24px] text-center)
             text-[18px]
             opacity-80 pt-[11px] text-[18px]
           "

@@ -27,6 +27,7 @@
             :key="index"
             class="
               <md:(w-100% mb-[10px])
+              max-w-[350px]
               flex items-center flex-col rounded-[20px]
             "
         >
@@ -34,7 +35,7 @@
           <img
               class="
                 <md:(w-100% mb-[10px] w-[350px] h-[330px])
-                w-[350px] h-[300px]
+                h-[300px] w-full
                 flex items-center flex-col rounded-[20px]
               "
               :src="item.coverImage" alt="">

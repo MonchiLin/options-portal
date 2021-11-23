@@ -35,15 +35,9 @@ export default defineComponent({
   },
   setup() {
     const mq = useMediaQuery()
-    const text = reactive({
-      t1: "Get started for free",
-      t2: "Choosing the best performing trader's trading strateg",
-      t3: "Open an account"
-    })
 
     return {
-      mq,
-      text
+      mq
     }
   }
 })

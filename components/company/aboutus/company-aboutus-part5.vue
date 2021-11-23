@@ -5,7 +5,7 @@
   >
     <div
         class="
-          <md:(h-[436px])
+          <md:(h-[436px] <md:(pb-0))
           h-[874px] pb-[60px]
           flex items-center page-content flex-col
         "

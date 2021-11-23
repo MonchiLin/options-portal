@@ -20,7 +20,7 @@
           <img class="w-[24px] h-[24px] self-start" src="/company/contractus/part3/Location.png" alt="">
           <div class="flex flex-col ml-[16px]">
             <p class="text-[18px] font-black text-primary">{{ item.name }}</p>
-            <p class="mt-[10px] text-[18px] text-secondary">{{ item.location }}</p>
+            <p class="mt-[10px] text-[18px] text-secondary <md:(text-[12px] leading-[15px])">{{ item.location }}</p>
           </div>
         </div>
 

@@ -30,7 +30,7 @@
             :style="{backgroundImage:  `url(${mq.mobile ? '/products/part8/readtogetstarted_m.png' : '/products/part8/readtogetstarted.png'})`}"
             class="
               <md:(mt-[38px])
-              w-full h-auto bg-contain bg-no-repeat flex flex-col items-center
+              w-full h-auto bg-cover bg-no-repeat flex flex-col items-center rounded-[20px] overflow-hidden
             "
         >
           <p class="text-white text-[35px] leading-[48px] font-black pt-[60px] <md:(text-[20px] leading-[20px])">

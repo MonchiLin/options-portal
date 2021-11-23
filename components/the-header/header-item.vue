@@ -18,9 +18,9 @@
     </div>
 
     <OverlayPanel ref="op">
-      <div class="flex flex-col px-[10px] py-[10px]">
+      <div class="flex flex-col px-[15px] py-[10px]">
         <a
-            class="pb-[10px] h-[30px] hover:text-orange"
+            class="pb-[10px] h-[40px] hover:text-orange"
             :class="[menu.isActive(route.path) && 'text-orange']"
             :href="menu.href" v-for="menu of item.menus" :key="item.label"
         >
@@ -72,6 +72,10 @@ export default defineComponent({
 <style lang="scss">
 .p-overlaypanel .p-overlaypanel-content {
   padding: 0;
+}
+
+.p-overlaypanel-content {
+  border-radius: 10px;
 }
 
 </style>

@@ -9,7 +9,7 @@
     <div class="<md:(ml-0 items-center) w-full flex flex-col justify-center h-full">
       <p class="<md:(text-20px) text-35px font-black">{{ text.t1 }}</p>
 
-      <p class="<md:(mt-[18px]) mt-[18px]">{{ text.t2 }}</p>
+      <p class="<md:(mt-[18px] text-center) mt-[18px]">{{ text.t2 }}</p>
 
       <button
           class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">

@@ -12,7 +12,7 @@
     >
 
       <h3 class="<md:(text-[34px]) text-[44px] leading-[75px] font-black">{{ text.t1 }}</h3>
-      <h4 class="<md:(text-[14px] leading-[28px]) text-[18px] leading-[28px] text-center opacity-80 mt-[11px]">{{ text.t2 }}</h4>
+      <h4 class="<md:(text-[14px] leading-[28px] w-full) w-[500px] text-[18px] leading-[28px] text-center opacity-80 mt-[11px]">{{ text.t2 }}</h4>
 
     </div>
   </the-part>
