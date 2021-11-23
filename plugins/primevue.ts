@@ -4,12 +4,15 @@ import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import Carousel from 'primevue/carousel';
 import Panel from 'primevue/panel';
+import ToastService from 'primevue/toastservice';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(PrimeVue, {ripple: true});
+  const app = nuxtApp.vueApp
+  app.use(PrimeVue, {ripple: true});
 
-  nuxtApp.vueApp.component('prime-panel', Panel);
-  nuxtApp.vueApp.component('prime-carousel', Carousel);
-  nuxtApp.vueApp.component('prime-accordion', Accordion);
-  nuxtApp.vueApp.component('prime-accordion-tab', AccordionTab);
+  app.component('prime-panel', Panel);
+  app.component('prime-carousel', Carousel);
+  app.component('prime-accordion', Accordion);
+  app.component('prime-accordion-tab', AccordionTab);
+  app.use(ToastService);
 });

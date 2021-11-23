@@ -1,5 +1,10 @@
 <template>
   <nuxt-layout name="layout">
+    <Html>
+    <Head>
+      <Title>QIQUAN-Company</Title>
+    </Head>
+    </Html>
     <the-header/>
     <main class="flex flex-col w-full">
       <company-aboutus-part1/>

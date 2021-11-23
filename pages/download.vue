@@ -1,10 +1,10 @@
 <template>
-  <Html>
-  <Head>
-    <Title>QIQUAN-Download</Title>
-  </Head>
-  </Html>
   <nuxt-layout name="layout">
+    <Html>
+    <Head>
+      <Title>QIQUAN-Download</Title>
+    </Head>
+    </Html>
     <the-header/>
     <main class="flex flex-col w-full">
       <download-part1/>

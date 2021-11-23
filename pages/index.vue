@@ -1,10 +1,10 @@
 <template>
-  <Html>
-  <Head>
-    <Title>QIQUAN-Home</Title>
-  </Head>
-  </Html>
   <nuxt-layout name="layout">
+    <Html>
+    <Head>
+      <Title>QIQUAN-Home</Title>
+    </Head>
+    </Html>
     <the-header/>
     <main class="flex flex-col w-full">
       <index-part1/>

@@ -1,11 +1,11 @@
 <template>
-  <Html>
+  <nuxt-layout name="layout">
+    <Html>
     <Head>
       <Title>QIQUAN-Product</Title>
     </Head>
-  </Html>
+    </Html>
 
-  <nuxt-layout name="layout">
     <the-header/>
     <main class="flex flex-col w-full">
       <products-part1/>
