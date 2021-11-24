@@ -1,7 +1,8 @@
 <template>
   <header
-      class="bg-transparent absolute w-full flex flex-row justify-center"
+      class="bg-transparent w-full flex flex-row justify-center transition z-10"
       :class="[visible && '<md:bg-blue']"
+      :style="[headerStyle]"
   >
     <div
         class="page-content flex flex-row items-center <md:justify-between justify-center h-[72px]"
@@ -10,7 +11,7 @@
       <div class="flex flex-row items-center">
         <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
         <h1 class="pl-[12px] text-white">
-          <a href="/">QIQUAN</a >
+          <a href="/">QIQUAN</a>
         </h1>
       </div>
 
@@ -73,7 +74,7 @@
 
 <script lang="ts">
 import { useMediaQuery } from "~/utils/shared";
-import { computed, defineComponent, nextTick, reactive, ref } from "vue";
+import { computed, defineComponent, nextTick, onMounted, reactive, ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import OverlayPanel from 'primevue/overlaypanel';
 import Sidebar from 'primevue/sidebar';
@@ -137,11 +138,32 @@ export default defineComponent({
 
     const onMenuClick = (event, newMenus) => {
       menus.value = newMenus
-      console.log(event)
       nextTick(() => {
         menuRef.value.show(event)
       })
     }
+
+    const headerStyle = reactive({
+      position: "absolute",
+      top: undefined,
+      backgroundColor: undefined,
+    })
+
+    const onScroll = (e: Event) => {
+      if (window.scrollY > 200) {
+        headerStyle.position = "sticky"
+        headerStyle.top = "0px"
+        headerStyle.backgroundColor = "#217BF4"
+      } else {
+        headerStyle.position = "absolute"
+        headerStyle.top = undefined
+        headerStyle.backgroundColor = undefined
+      }
+    }
+
+    onMounted(() => {
+      window.addEventListener("scroll", onScroll)
+    })
 
     return {
       mq,
@@ -151,7 +173,8 @@ export default defineComponent({
       visible,
       menus,
       onMenuClick,
-      menuRef
+      menuRef,
+      headerStyle
     }
   }
 })
@@ -160,11 +183,11 @@ export default defineComponent({
 
 <style lang="scss">
 .p-sidebar-header {
-  display: none;
+  display: none !important;
 }
 
 .p-sidebar .p-sidebar-content {
-  padding: 0;
+  padding: 0 !important;
 }
 
 //.p-sidebar.p-sidebar-full {
@@ -173,7 +196,7 @@ export default defineComponent({
 //}
 
 .p-sidebar-top {
-  height: 90vh;
+  height: 90vh !important;
 }
 
 </style>

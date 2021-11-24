@@ -1,5 +1,9 @@
-const AdmZip = require('adm-zip');
-const path = require("path")
+import AdmZip from 'adm-zip';
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const zip = new AdmZip();
 
