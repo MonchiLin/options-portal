@@ -47,3 +47,13 @@ export const useMediaQuery = () => {
 
   return matches;
 }
+
+export type ApiWrap<T> = {
+  data: T
+  errCode: string
+  errMsg: string
+  success: boolean
+  sysTime: number
+}
+
+export const BASE_URL = "https://oapi.payeres.com"
