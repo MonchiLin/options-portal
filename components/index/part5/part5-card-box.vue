@@ -7,9 +7,15 @@
           flex items-center
         "
     >
-      <part5-card class="<md:mb-[30px]" :config="current[0]" theme="secondary"/>
-      <part5-card class="<md:mb-[30px]" :config="current[1]" :theme="prominent"/>
-      <part5-card :config="current[2]" theme="secondary"/>
+      <template v-if="mq.desktop">
+        <part5-card :config="current[0]" theme="secondary"/>
+        <part5-card :config="current[1]" :theme="prominent"/>
+        <part5-card :config="current[2]" theme="secondary"/>
+      </template>
+      <template v-else-if="mq.mobile">
+        <part5-card v-for="(item, index) of current" :key="index" class="<md:mb-[30px]" :config="item" theme="secondary"/>
+      </template>
+
     </div>
 
     <pagintion class="mt-[20px]" v-model:page-index="paging.pageIndex" :page-total="paging.pageTotal"/>
@@ -43,7 +49,10 @@ export default defineComponent({
       paging.pageTotal = chunks.value.length
     }, {immediate: true})
 
-    const current = computed(() => chunks.value[paging.pageIndex - 1] || [])
+    const current = computed(() => {
+      // 移动端不分页
+      return mq.desktop ? (chunks.value[paging.pageIndex - 1] || []) : props.configs
+    })
 
     const prominent = computed(() => (current.value.length === 3 && mq.desktop) ? 'primary' : 'secondary')
 
