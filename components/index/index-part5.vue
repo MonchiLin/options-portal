@@ -84,7 +84,42 @@ export default defineComponent({
       t2: "Partners for wealth creation",
     })
 
-    const cardData = ref([ ])
+    const cardData = ref([
+      // 示例数据
+      // {
+      //   annualEarnings: 108,
+      //   t1: "Annual earnings 108.00%+",
+      //   t2: "The best choice of spare money investment, income every day to account, investment cycle for a month",
+      //   descriptions: [
+      //     "Free experience",
+      //     "Experience period of funds: 4 days",
+      //     "Buy today, pay tomorrow (first profit)",
+      //     "All revenue goes to the user"
+      //   ]
+      // },
+      // {
+      //   annualEarnings: 84,
+      //   t1: "Annual earnings 108.00%+",
+      //   t2: "The best choice of spare money investment, income every day to account, investment cycle for a month",
+      //   descriptions: [
+      //     "Start at Rs 30,000",
+      //     "The lockup period is 1 month",
+      //     "Buy today, pay tomorrow (first profit)",
+      //     "Risk type: Low risk"
+      //   ]
+      // },
+      // {
+      //   annualEarnings: 84,
+      //   t1: "Annual earnings 108.00%+",
+      //   t2: "The best choice of spare money investment, income every day to account, investment cycle for a month",
+      //   descriptions: [
+      //     "Start at Rs 30,000",
+      //     "The lockup period is 1 month",
+      //     "Buy today, pay tomorrow (first profit)",
+      //     "Risk type: Low risk"
+      //   ]
+      // }
+    ])
 
 
     const api = BASE_URL + '/api/investment/productList'
