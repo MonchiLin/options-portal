@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import { ApiWrap, BASE_URL,useMediaQuery } from "~/utils/shared";
+import { ApiWrap, BASE_URL, useMediaQuery } from "~/utils/shared";
 import { computed, reactive, ref } from "vue";
 import ThePart from "~/components/the-part.vue";
 import TabBar from "~/components/tab-bar.vue";
@@ -87,7 +87,7 @@ const defaultData = {
   coverImage: "/index/part7/i1.png",
   title: "It Does Not Matter Hows Slowly go as Long",
   link: "/",
-  content:''
+  content: ''
 };
 export default defineComponent({
   components: {
@@ -98,21 +98,19 @@ export default defineComponent({
   },
   async setup() {
     const mq = useMediaQuery()
-    const news = ref([
-     
-    ])
+    const news = ref([])
     const api = BASE_URL + "/api/index/articleList";
-    const { data: res } = await useFetch<string, ApiWrap<DataType[]>>(api, {
+    const {data: res} = await useFetch<string, ApiWrap<DataType[]>>(api, {
       method: "post",
-      params: { articleClassMark: "article" },
+      params: {articleClassMark: "article"},
     });
     const data = res.value?.data ?? [];
     news.value = data.map((i: DataType) => {
       const item = cloneDeep(defaultData);
-      item.coverImage=BASE_URL+i.img;
-      item.title=i.title;
-     item.content=i.description
-     item.link='/newsDetails?id='+i.id
+      item.coverImage = BASE_URL + i.img;
+      item.title = i.title;
+      item.content = i.description
+      item.link = '/news/' + i.id
       return item;
     });
     const index = ref(1)

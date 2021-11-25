@@ -11,7 +11,12 @@
     >
       <div class="w-full">
         <p class="text-center text-[35px] text-primary font-black <md:(text-[20px])">{{ part3Text.t1 }}</p>
-        <p class="whitespace-pre-line text-[18px] leading-[32px] mt-[30px] text-primary <md:(text-[14px] leading-[28px] mt-[20px])">{{ part3Text.t2 }}</p>
+        <div
+            class="whitespace-pre-line text-[18px] leading-[32px] mt-[30px] text-primary <md:(text-[14px] leading-[28px] mt-[20px])"
+            v-html="part3Text.t2"
+        >
+
+        </div>
       </div>
 
 
@@ -21,12 +26,33 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import { useMediaQuery } from "~/utils/shared";
-import { computed, reactive, ref } from "vue";
+import { ApiWrap, BASE_URL, useMediaQuery } from "~/utils/shared";
+import { reactive } from "vue";
 import ThePart from "~/components/the-part.vue";
 import TabBar from "~/components/tab-bar.vue";
 import IosArrowUpIcon from 'vue-ionicons/dist/ios-arrow-up.vue'
+import { useRoute } from "vue-router";
+import { useFetch } from "#app";
 
+type DataType = {
+  id: number,
+  title: string
+  req: string
+  addTime: number,
+  classId: number,
+  content: string
+  className: string
+};
+
+const defaultData = {
+  "id" : 1,
+  "title" : "测试资讯标题1",
+  "req" : "0",
+  "addTime" : 1565872116000,
+  "classId" : 1,
+  "content" : "111111111111111",
+  "className" : "首页滚动资讯"
+};
 
 export default defineComponent({
   components: {
@@ -34,21 +60,11 @@ export default defineComponent({
     ThePart,
     IosArrowUpIcon,
   },
-  setup() {
-    
+  async setup() {
     const mq = useMediaQuery()
-    console.log(JSON.stringify(mq))
-    const tabIndex = ref(0)
-    const tabItems = computed(() => {
-      return [
-        "introduction",
-        "Group structure",
-        "shareholders",
-      ]
-    })
 
     const part3Text = reactive({
-      t1:"Group shareholders",
+      t1: "Group shareholders",
       t2: " steady Group Holding Ltd (the \"Company\") is the listed vehicle of the Group. It was incorporated on 12 August 1999. Its shares have been listed on SIX steady Exchange since 29 May 2000 with the symbol SQN, the security number 1067586 and the ISIN number CH0010675863.As at 31 December 2019, the market capitalisation of the Company amounted to approximately CHF 743,725,000. Details on the Company's capital are provided in Section 2.\n" +
           "Steady Bank Ltd was incorporated on 24 November 2000 and is a bank under the supervision of the Steady Financial Market Supervisory Authority FINMA (FINMA).The main office of Steady Bank Ltd is located in Gland,Switzerland, with a branch in Zurich and representative offices in Dubai and Hong Kong. The share capital of Steady Bank Ltd amounts to CHF 42,000,000 (7,000,000 registered shares with a nominal value of CHF 6).\n" +
           "Steady Bank Europe SA (formerly Internaxx Bank S.A.)has been a limited liability company incorporated in Luxembourg since 13 November 2000. Steady Bank Europe SA is a bank under the supervision of the Commission de Surveillance du Secteur Financier (CSSF). The share capital of Steady Bank Europe SA amounts to EUR 29,000,000 (29,000 registered shares without a nominal value). The acquisition of Steady Bank Europe SA by the Group was completed on 22 March 2019, after the Group received regulatory approval from the European Central Bank and the CSSF.\n" +
@@ -60,10 +76,21 @@ export default defineComponent({
           "For information on the exact registered addresses of each entity of the Group, reference is made to the last pages of the Annual Report. "
     })
 
+
+    const route = useRoute();
+    const newsId = route.params.newsId
+
+    const api = BASE_URL + "/api/index/articleDetail";
+    const {data: res} = await useFetch<string, ApiWrap<DataType>>(api, {
+      method: "post",
+      params: {articleId: newsId},
+    });
+    const data = res.value?.data ?? defaultData;
+    part3Text.t1 = data.title
+    part3Text.t2 = data.content
+
     return {
       mq,
-      tabIndex,
-      tabItems,
       part3Text
     }
   }

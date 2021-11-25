@@ -15,11 +15,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
 import NewsPart1 from "~/components/news/news-part1.vue";
 import NewsDetailsPart from "~/components/news/newsDetails-part.vue";
+import { useRoute } from "vue-router";
+import { ApiWrap, BASE_URL } from "~/utils/shared";
+import { useFetch } from "#app";
+import cloneDeep from "lodash-es/cloneDeep";
 
 export default defineComponent({
   components: {
@@ -30,9 +34,7 @@ export default defineComponent({
   },
   setup() {
 
-    return {
-
-    }
+    return {}
   }
 })
 
