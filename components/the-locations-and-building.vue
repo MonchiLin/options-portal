@@ -1,70 +1,99 @@
 <template>
-  <div
-      class="flex-col flex"
-  >
+  <div class="flex-col flex">
     <div class="<md:(pb[24px] flex-col) flex flex-row justify-between">
-
-      <div
-          class="
-            <md:(w-full)
-            w-[45%]
-            flex flex-col
-          "
-      >
-
+      <div class="<md:(w-full) w-[45%] flex flex-col">
         <div
-            v-for="(item, index) of locations"
-            :key="index"
-            class="flex flex-row items-center mt-[30px]"
+          v-for="(item, index) of locations"
+          :key="index"
+          class="flex flex-row items-center mt-[30px]"
         >
-          <img class="w-[24px] h-[24px] self-start" src="/company/contractus/part3/Location.png" alt="">
+          <img
+            class="w-[24px] h-[24px] self-start"
+            src="/company/contractus/part3/Location.png"
+            alt=""
+          />
           <div class="flex flex-col ml-[16px]">
             <p class="text-[18px] font-black text-primary">{{ item.name }}</p>
-            <p class="mt-[10px] text-[18px] text-secondary <md:(text-[12px] leading-[15px])">{{ item.location }}</p>
+            <p
+              class="
+                mt-[10px]
+                text-[18px] text-secondary
+                <md:(text-[12px]
+                leading-[15px])
+              "
+            >
+              {{ item.location }}
+            </p>
           </div>
         </div>
-
       </div>
 
-      <img class="<md:(w-full h-[318px] mt-[20px]) w-[500px] h-[476px]" src="/company/contractus/part3/building.png" alt="">
-
+      <img
+        class="<md:(w-full h-[318px] mt-[20px]) w-[500px] h-[476px]"
+        src="/company/contractus/part3/building.png"
+        alt=""
+      />
     </div>
 
-    <div class="flex flex-row mt-[20px] items-center flex-wrap <md:(flex-col items-start)">
+    <div
+      class="
+        flex flex-row
+        mt-[20px]
+        items-center
+        flex-wrap
+        <md:(flex-col
+        items-start)
+      "
+    >
       <span class="text-[16px] font-black">{{ text.t1 }}</span>
       <div class="pl-[68px] flex flex-row items-center <md:(pl-0 mt-[16px])">
         <img
-            style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
-            class="w-[34px] h-[34px]" src="/company/contractus/part3/Facebook.png" alt="">
+          style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
+          class="w-[34px] h-[34px]"
+          src="/company/contractus/part3/Facebook.png"
+          alt=""
+        />
         <img
-            style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08));"
-            class="ml-[20px] w-[34px] h-[34px]" src="/company/contractus/part3/chat.png" alt="">
+          style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
+          class="ml-[20px] w-[34px] h-[34px]"
+          src="/company/contractus/part3/chat.png"
+          alt=""
+        />
         <img
-            style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
-            class="ml-[20px] w-[34px] h-[34px]" src="/company/contractus/part3/Twitter.png" alt="">
+          style="filter: drop-shadow(0px 13px 18px rgba(17, 19, 35, 0.08))"
+          class="ml-[20px] w-[34px] h-[34px]"
+          src="/company/contractus/part3/Twitter.png"
+          alt=""
+        />
       </div>
     </div>
-
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import { useMediaQuery } from "~/utils/shared";
+import { ApiWrap, BASE_URL, useMediaQuery } from "~/utils/shared";
 import { reactive } from "vue";
-
 export default defineComponent({
   components: {},
-  setup() {
-    const mq = useMediaQuery()
+  async setup() {
+    const mq = useMediaQuery();
     const text = reactive({
-      t1: "You Can also Connect with Us"
-    })
-
-    const locations = reactive([
-      {
-        name: "UK headquarters",
+      t1: "You Can also Connect with Us",
+    });
+    const defaultData = {
+      name: "India branch",
         location: "27-31 Melville Street-Edinburgh UK-EH3 7JF",
+    };
+   
+    const api = BASE_URL + "/api/home/corpAddress";
+    const { data: res } = await useFetch<string, String>(api);
+    const data = res.value?.data ?? {};
+    console.log(data['1']);
+   const locations = reactive([
+      {
+        name: data['1'],
+        location: "27-31elville Street-Edinburgh UK-EH3 7JF",
       },
       {
         name: "India branch",
@@ -88,13 +117,11 @@ export default defineComponent({
       text,
       locations,
       mq,
-    }
-  }
-})
-
+    };
+  },
+});
 </script>
 
 <style lang="scss">
-
 </style>
 
