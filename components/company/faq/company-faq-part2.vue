@@ -1,7 +1,7 @@
 <template>
   <the-part background-color="white">
     <div
-      class="
+        class="
         <md:(py-[30px])
         py-[60px]
         flex
@@ -12,26 +12,26 @@
       "
     >
       <tab-bar
-        :items="tabItems"
-        v-model:index="tabIndex"
-        tabbar-class="bg-[#F8F8FA]"
-        tabbar-item-class="w-[190px] text-[14px] leading-[24px] text-center <md:(w-[100%] leading-[16px])"
-        tabbar-item-active-class="text-[secondary] active-tabbar-item"
-        tabbar-item-un-active-class="text-[secondary] opacity-50"
+          :items="tabItems"
+          v-model:index="tabIndex"
+          tabbar-class="bg-[#F8F8FA]"
+          tabbar-item-class="w-[190px] text-[14px] leading-[24px] text-center <md:(w-[100%] leading-[16px])"
+          tabbar-item-active-class="text-[secondary] active-tabbar-item"
+          tabbar-item-un-active-class="text-[secondary] opacity-50"
       />
 
-      <div class="pt-[20px]" />
+      <div class="pt-[20px]"/>
       <prime-panel
-        class="<md:() pt-[10px] w-full"
-        :toggleable="true"
-        v-model:collapsed="collapseds[index]"
-        v-for="(item, index) of tabDetail"
-        :key="index"
+          class="<md:() pt-[10px] w-full"
+          :toggleable="true"
+          v-model:collapsed="collapseds[index]"
+          v-for="(item, index) of tabDetail"
+          :key="index"
       >
         <template #header>
           <div
-            @click="toggle(index)"
-            class="
+              @click="toggle(index)"
+              class="
               flex-row flex
               items-center
               justify-between
@@ -42,7 +42,7 @@
             "
           >
             <span
-              class="
+                class="
                 font-medium
                 text-secondary text-[17px]
                 leading-[35px]
@@ -53,7 +53,7 @@
               {{ item.title }}
             </span>
             <div
-              class="
+                class="
                 w-[30px]
                 h-[30px]
                 flex
@@ -63,8 +63,8 @@
               "
             >
               <ios-arrow-down-icon
-                class="transform transition duration-500"
-                :class="[!collapseds[index] && 'rotate-180']"
+                  class="transform transition duration-500"
+                  :class="[!collapseds[index] && 'rotate-180']"
               />
             </div>
           </div>
@@ -79,14 +79,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
-import { ApiWrap, BASE_URL, useMediaQuery } from "~/utils/shared";
-import { computed, reactive, ref, watch } from "vue";
+import {defineComponent} from "@vue/runtime-core";
+import {ApiWrap, BASE_URL, useMediaQuery} from "~/utils/shared";
+import {computed, reactive, ref, watch} from "vue";
 import ThePart from "~/components/the-part.vue";
 import TabBar from "~/components/tab-bar.vue";
 import IosArrowUpIcon from "vue-ionicons/dist/ios-arrow-up.vue";
 import IosArrowDownIcon from "vue-ionicons/dist/ios-arrow-down.vue";
-import cloneDeep from "lodash-es/cloneDeep";
+import {useFetch} from "#app";
+
 type DataType = {
   id: number;
   className: string;
@@ -108,21 +109,21 @@ export default defineComponent({
     IosArrowDownIcon,
   },
   async setup() {
-    
+
     const mq = useMediaQuery();
     const tabIndex = ref(0);
     const api = BASE_URL + "/api/index/articleClassList";
 
-    const { data: res } = await useFetch<string, ApiWrap<DataType[]>>(api, {
+    const {data: res} = await useFetch<string, ApiWrap<DataType[]>>(api, {
       method: "post",
-      params: { mark: "faq" },
+      params: {mark: "faq"},
     });
 
     const data = res.value?.data ?? [];
-    const tabItems = [];
-    const tabDetails = [];
-    
-    data.map(async (i: DataType) => {
+    const tabItems = reactive([]);
+    const tabDetails = reactive([]);
+
+    await Promise.all(data.map(async (i: DataType) => {
       tabItems.push(i.className);
       const articleClassListapi = BASE_URL + "/api/index/articleList";
       const response = await fetch(articleClassListapi, {
@@ -130,29 +131,28 @@ export default defineComponent({
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: 'articleClassMark='+i['mark'],
+        body: 'articleClassMark=' + i['mark'],
       })
-       const articleClassList=await response.json();
-       
-        tabDetails.push(articleClassList.data)
-        
-        
-    });
-   
-    
+      const articleClassList = await response.json();
+
+      tabDetails.push(articleClassList.data)
+
+      return Promise.resolve()
+    }));
+
 
     const tabDetail = computed(() => tabDetails[tabIndex.value] || []);
 
     const collapseds = ref<Record<string, boolean>>({});
 
     watch(
-      tabIndex,
-      () => {
-        collapseds.value = tabDetail.value.reduce((p, c, i) => {
-          return { ...p, [i]: true };
-        }, {});
-      },
-      { immediate: true }
+        tabIndex,
+        () => {
+          collapseds.value = tabDetail.value.reduce((p, c, i) => {
+            return {...p, [i]: true};
+          }, {});
+        },
+        {immediate: true}
     );
 
     const toggle = (index) => {
