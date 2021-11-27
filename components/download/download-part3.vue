@@ -49,12 +49,15 @@ export default defineComponent({
   components: {
     ThePart,
     BluePointer
+  },props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props){
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
-      t1: "Advantages of Steadyoption",
-      t2: "Steadyoption is a safe and formal investment and financial management platform"
+      t1: "Advantages of "+siteInfo.siteName,
+      t2: siteInfo.siteName+ "is a safe and formal investment and financial management platform"
     })
 
     const features = reactive([
@@ -65,7 +68,7 @@ export default defineComponent({
       },
       {
         label: "Free trial",
-        description: "After opening an account in Steadyoption, every user will receive RS30000 experience fee for free. ",
+        description: "After opening an account in "+siteInfo.siteName+", every user will receive RS30000 experience fee for free. ",
         icon: "/download/part3/Freetrial.png"
       },
       {

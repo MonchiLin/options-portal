@@ -32,11 +32,15 @@ export default defineComponent({
     IosArrowUpIcon,
     IosArrowDownIcon
   },
-  setup() {
+  props: {
+    siteInfo: Object
+  },
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Introduction",
-      t2: "Steady Group (the \"Group\") is an international financial services group that applies a wide range of standards relating to corporate governance, including the SIX Steady Exchange's Directive on Information relating to Corporate Governance and FINMA Circular 2017/1 \"Corporate governance – banks\". This Corporate Governance Report informs shareholders, prospective investors as well as the larger public on the Group's policies in matters of corporate governance, which is at the heart of a proper business conduct and a central part of the Group's internal organisation. ",
+      t2: siteInfo.siteName+" Group (the \"Group\") is an international financial services group that applies a wide range of standards relating to corporate governance, including the SIX "+siteInfo.siteName+" Exchange's Directive on Information relating to Corporate Governance and FINMA Circular 2017/1 \"Corporate governance – banks\". This Corporate Governance Report informs shareholders, prospective investors as well as the larger public on the Group's policies in matters of corporate governance, which is at the heart of a proper business conduct and a central part of the Group's internal organisation. ",
     })
 
     return {

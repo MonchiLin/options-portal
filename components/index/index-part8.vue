@@ -63,13 +63,16 @@ import ThePart from "~/components/the-part.vue";
 export default defineComponent({
   components: {
     ThePart,
+  }, props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery();
     const text = reactive({
       t1: "New to investing?",
       t2:
-        "Discover Steadyoption: Practice customer service to\n" +
+        "Discover "+siteInfo.siteName +": Practice customer service to\n" +
         "receive Rs30000 experience gold, free experience",
       t3: "Contact costomer service",
     });

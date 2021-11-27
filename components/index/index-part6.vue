@@ -72,19 +72,21 @@ export default defineComponent({
     ThePart,
     // ElCarousel,
     // ElCarouselItem
+  }, props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
     const mq = useMediaQuery()
     const text = reactive({
       t1: "We are only as GOOD as our clients say WE ARE",
     })
-
+    const siteInfo=props.siteInfo
     const cardData = [
       {
         name: "Gulam sarwar",
         jobTitle: "Dubai",
         avatar: "/index/part6/avatar1.png",
-        description: " Receive 30,000 rupees for free, which disappoints me! Now I rely on the steady option platform to get a stable income! ",
+        description: " Receive 30,000 rupees for free, which disappoints me! Now I rely on the "+siteInfo.siteName+" platform to get a stable income! ",
       },
       {
         name: "Sikha Devi",

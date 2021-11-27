@@ -47,18 +47,22 @@ export default defineComponent({
     ThePart,
     BluePointer
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Advantages of documentary financial management",
       t2: "Save time\n" +
-          "Trading is a time-consuming task for all investors. Your copy investment in steadyoption becomes easy, and professional people will do it for you. This will save you a lot of time.\n" +
+          "Trading is a time-consuming task for all investors. Your copy investment in "+siteInfo.siteName+" becomes easy, and professional people will do it for you. This will save you a lot of time.\n" +
           "\n" +
           "Enter a diversified market\n" +
-          "No one is an expert in all markets and assets. Our experienced traders focus on extremely special markets and have become trading experts. Buying Steadyoption's documentary financial products allows you to enter these markets.\n" +
+          "No one is an expert in all markets and assets. Our experienced traders focus on extremely special markets and have become trading experts. Buying "+siteInfo.siteName+"'s documentary financial products allows you to enter these markets.\n" +
           "\n" +
           "Reduce risk\n" +
-          "Letting professional people trade is much less risky than trying to trade on your own. If you purchase Steadyoption’s documentary financial products, there will be a professional team managing and investing for you"
+          "Letting professional people trade is much less risky than trying to trade on your own. If you purchase "+siteInfo.siteName+"’s documentary financial products, there will be a professional team managing and investing for you"
     })
 
     return {

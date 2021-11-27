@@ -37,13 +37,16 @@ import ThePart from "~/components/the-part.vue";
 export default defineComponent({
   components: {
     ThePart
+  },props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "We have users all over the world",
       t2: "We operate in multiple markets around the world",
-      t3: " Steady Group is the most prestigious investment services company. in the UK. Steady-option FINANCE is a financial services group that invests globally,It is headquartered in the United Kingdom and has business in 7 countries and regions including Sydney, Switzerland, London, India, Dubai, Hong Kong, Vietnam and Thailand",
+      t3: siteInfo.siteName+" Group is the most prestigious investment services company. in the UK. "+siteInfo.siteName+" FINANCE is a financial services group that invests globally,It is headquartered in the United Kingdom and has business in 7 countries and regions including Sydney, Switzerland, London, India, Dubai, Hong Kong, Vietnam and Thailand",
     })
 
 

@@ -36,12 +36,15 @@ import isNil from 'lodash-es/isNil'
 export default defineComponent({
   components: {
     ThePart,
+  }, props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Who We Are?",
-      t2: "A leading Indian investment services company, Steadyoption has presence across UK and india,Sydney, Switzerland, London, Dubai, Hong Kong, Vietnam and Thailand. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. Along with traditional offerings, we have built a comprehensive portfolio of digital products and services. Our multi-channel distribution network comprising of branches, online portal, dedicated customer care and phone service caters to all the investment needs of the clients ",
+      t2: "A leading Indian investment services company, "+siteInfo.siteName+" has presence across UK and india,Sydney, Switzerland, London, Dubai, Hong Kong, Vietnam and Thailand. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. Along with traditional offerings, we have built a comprehensive portfolio of digital products and services. Our multi-channel distribution network comprising of branches, online portal, dedicated customer care and phone service caters to all the investment needs of the clients ",
     })
 
     const images = reactive({

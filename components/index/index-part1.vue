@@ -85,14 +85,15 @@ export default defineComponent({
     siteInfo: Object
   },
   async setup(props) {
+    const siteInfo=props.siteInfo;
     const mq = useMediaQuery();
     const text = reactive({
-      t1: "SteadyOption",
+      t1: siteInfo.siteName,
       t2: "Partners for wealth creation",
       t3: "Choose the right platform and you are half the battle",
       t4: "Invest now",
     });
-    const siteInfo=props.siteInfo;
+    
    
     return {
       mq,

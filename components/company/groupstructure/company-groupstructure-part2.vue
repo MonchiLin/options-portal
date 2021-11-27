@@ -21,14 +21,14 @@
 
       <div class="pt-[60px] <md:(pt-[20px])"/>
       <div v-show="tabIndex === 0" class="w-full">
-        <company-groupstructure-part2-part1-1/>
+        <company-groupstructure-part2-part1-1 :siteInfo="siteInfo"/>
         <company-groupstructure-part2-part1-2 :siteInfo="siteInfo"/>
         <company-groupstructure-part2-part1-3/>
         <company-groupstructure-part2-part1-4 :siteInfo="siteInfo"/>
       </div>
 
       <div v-show="tabIndex === 1" class="w-full">
-        <company-groupstructure-part2-part2-1/>
+        <company-groupstructure-part2-part2-1 :siteInfo="siteInfo"/>
         <company-groupstructure-part2-part1-2 :siteInfo="siteInfo"/>
         <company-groupstructure-part2-part1-3/>
         <company-groupstructure-part2-part1-4 :siteInfo="siteInfo"/>
@@ -89,7 +89,7 @@ export default defineComponent({
     const siteInfo=props.siteInfo
     const part3Text = reactive({
       t1:"Group shareholders",
-      t2: " steady Group Holding Ltd (the \"Company\") is the listed vehicle of the Group. It was incorporated on 12 August 1999. Its shares have been listed on SIX steady Exchange since 29 May 2000 with the symbol SQN, the security number 1067586 and the ISIN number CH0010675863.As at 31 December 2019, the market capitalisation of the Company amounted to approximately CHF 743,725,000. Details on the Company's capital are provided in Section 2.\n" +
+      t2: "steady Group Holding Ltd (the \"Company\") is the listed vehicle of the Group. It was incorporated on 12 August 1999. Its shares have been listed on SIX steady Exchange since 29 May 2000 with the symbol SQN, the security number 1067586 and the ISIN number CH0010675863.As at 31 December 2019, the market capitalisation of the Company amounted to approximately CHF 743,725,000. Details on the Company's capital are provided in Section 2.\n" +
           "Steady Bank Ltd was incorporated on 24 November 2000 and is a bank under the supervision of the Steady Financial Market Supervisory Authority FINMA (FINMA).The main office of Steady Bank Ltd is located in Gland,Switzerland, with a branch in Zurich and representative offices in Dubai and Hong Kong. The share capital of Steady Bank Ltd amounts to CHF 42,000,000 (7,000,000 registered shares with a nominal value of CHF 6).\n" +
           "Steady Bank Europe SA (formerly Internaxx Bank S.A.)has been a limited liability company incorporated in Luxembourg since 13 November 2000. Steady Bank Europe SA is a bank under the supervision of the Commission de Surveillance du Secteur Financier (CSSF). The share capital of Steady Bank Europe SA amounts to EUR 29,000,000 (29,000 registered shares without a nominal value). The acquisition of Steady Bank Europe SA by the Group was completed on 22 March 2019, after the Group received regulatory approval from the European Central Bank and the CSSF.\n" +
           "Steady Financial Services (Malta) Limited has been a limited liability company incorporated in Malta since 19 October 2012. Steady Financial Services (Malta) Limited is an investment services company that operates as custodian for European investment funds and broker under both a Category 4a licence and a Category 2 licence from the Malta Financial Services Authority (MFSA). The share capital of Steady Financial Services (Malta) Limited amounts to EUR 1,100,000, divided into 1,099,999 ordinary class A shares with a nominal value of EUR 1 (held by the Company) and 1 ordinary class B share with a nominal value of EUR 1 (held by Steady Bank Ltd).\n" +
@@ -99,7 +99,7 @@ export default defineComponent({
           "Steady Pte. Ltd has been a limited liability company incorporated in Singapore since 26 February 2019.Steady Pte. Ltd is a financial services company under the supervision of the Monetary Authority of Singapore (MAS),from which it was granted a Capital Markets Service (CMS) licence. The share capital of Steady Pte. Ltd amounts to SGD 4,100,000 (4,100 registered shares with a nominal value of SGD 1,000).\n" +
           "For information on the exact registered addresses of each entity of the Group, reference is made to the last pages of the Annual Report. "
     })
-
+    part3Text.t2=part3Text.t2.replace("steady",siteInfo.siteName).replace("Steady",siteInfo.siteName);
     return {
       mq,
       tabIndex,

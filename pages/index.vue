@@ -9,12 +9,12 @@
     <main class="flex flex-col w-full">
       <index-part1 :siteInfo="siteInfo"/>
       <index-part2 :siteInfo="siteInfo"/>
-      <index-part3/>
-      <index-part4/>
-      <index-part5 />
-      <index-part6/>
-      <index-part7/>
-      <index-part8/>
+      <index-part3 :siteInfo="siteInfo"/>
+      <index-part4 :siteInfo="siteInfo"/>
+      <index-part5 :siteInfo="siteInfo"/>
+      <index-part6 :siteInfo="siteInfo"/>
+      <index-part7 :siteInfo="siteInfo"/>
+      <index-part8 :siteInfo="siteInfo"/>
     </main>
     <the-footer :siteInfo="siteInfo"/>
   </nuxt-layout>

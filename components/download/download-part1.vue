@@ -40,13 +40,14 @@ export default defineComponent({
     siteInfo: Object
   },
   setup(props){
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Ideal trading platform for the world's investors",
-      t2: "The financial goal of every individual is different. At Steadyoption, we conduct thorough research to zero in on the right mutual fund scheme for you. Steady fund recommendations are based on an in-depth analysis of various categories of equity and debt mutual fund schemes. ",
+      t2: "The financial goal of every individual is different. At "+siteInfo.siteName+", we conduct thorough research to zero in on the right mutual fund scheme for you. "+siteInfo.siteName+" fund recommendations are based on an in-depth analysis of various categories of equity and debt mutual fund schemes. ",
       t3: "Download App",
     })
-    const siteInfo=props.siteInfo
+    
     return {
       mq,
       text,

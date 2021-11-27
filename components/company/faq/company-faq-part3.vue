@@ -94,7 +94,7 @@ export default defineComponent({
       },
       p2: {
         title: "E-Mail",
-        description: "steadyoption@yahoo.com Send us your question",
+        description: siteInfo.siteEmail+" Send us your question",
         icon: "/company/faq/part3/Icon-1.png",
       },
     })

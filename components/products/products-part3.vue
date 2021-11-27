@@ -59,16 +59,16 @@ export default defineComponent({
     siteInfo: Object
   },
  setup(props) {
-    
+     const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Top traders work for you - no management fees",
-      t2: "Register SteadyOption and purchase documentary financial products without additional costs, and no management fees or other hidden costs are involved.\n" +
+      t2: "Register "+siteInfo.siteName+" and purchase documentary financial products without additional costs, and no management fees or other hidden costs are involved.\n" +
           "\n" +
           "Behind all the documentary financial products of the platform is a top-level professional investment team. They are both intelligent and experienced, and they are all elites in the industry. Now, you have the opportunity to let them work for you and let a team invest for you! This is the advantage of documentary financial management, and it is also a factor welcomed by investors!",
       t3: "Invest now"
     })
-    const siteInfo=props.siteInfo
+   
     return {
       
       mq,

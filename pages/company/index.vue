@@ -8,11 +8,11 @@
     <the-header :siteInfo="siteInfo"/>
     <main class="flex flex-col w-full">
       <company-aboutus-part1/>
-      <company-aboutus-part2/>
+      <company-aboutus-part2 :siteInfo="siteInfo"/>
       <company-aboutus-part3 :siteInfo="siteInfo"/>
-      <company-aboutus-part4/>
-      <company-aboutus-part5/>
-      <company-aboutus-part6/>
+      <company-aboutus-part4 :siteInfo="siteInfo"/>
+      <company-aboutus-part5 :siteInfo="siteInfo"/>
+      <company-aboutus-part6 :siteInfo="siteInfo"/>
       <company-aboutus-part7/>
       <company-aboutus-part8 :siteInfo="siteInfo"/>
     </main>
@@ -24,6 +24,7 @@
 import { defineComponent } from "vue";
 import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
+import { publicMethod } from "~/utils/shared";
 import CompanyAboutusPart1 from "~/components/company/aboutus/company-aboutus-part1.vue";
 import CompanyAboutusPart2 from "~/components/company/aboutus/company-aboutus-part2.vue";
 import CompanyAboutusPart3 from "~/components/company/aboutus/company-aboutus-part3.vue";
@@ -48,11 +49,9 @@ export default defineComponent({
   }, props: {
     siteInfo: Object
   },
-  setup(props) {
-    const siteInfo=props.siteInfo
-    return {
-      siteInfo
-    }
+ async setup() {
+    const siteInfo = await publicMethod.getSiteInfo();
+    return {siteInfo};
   }
 })
 

@@ -97,7 +97,7 @@ export default defineComponent({
     const steps = reactive([
       {
         step: "Step 1",
-        description: "Register as a Steadyoption member for free,then login or contact dedocated customer service",
+        description: "Register as a "+siteInfo.siteName+" member for free,then login or contact dedocated customer service",
         image: "/products/part8/MaskGroup.png"
       },
       {

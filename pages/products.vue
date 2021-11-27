@@ -9,12 +9,12 @@
     <the-header :siteInfo="siteInfo"/>
     <main class="flex flex-col w-full">
       <products-part1/>
-      <products-part2/>
+      <products-part2 :siteInfo="siteInfo"/>
       <products-part3 :siteInfo="siteInfo"/>
       <products-part4/>
-      <products-part5/>
+      <products-part5 :siteInfo="siteInfo"/>
       <products-part6/>
-      <products-part7/>
+      <products-part7 :siteInfo="siteInfo"/>
       <products-part8 :siteInfo="siteInfo"/>
     </main>
     <the-footer :siteInfo="siteInfo"/>

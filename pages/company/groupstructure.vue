@@ -7,7 +7,7 @@
     </Html>
     <the-header :siteInfo="siteInfo"/>
     <main class="flex flex-col w-full">
-      <company-groupstructure-part1/>
+      <company-groupstructure-part1 :siteInfo="siteInfo"/>
       <company-groupstructure-part2 :siteInfo="siteInfo"/>
     </main>
     <the-footer :siteInfo="siteInfo"/>

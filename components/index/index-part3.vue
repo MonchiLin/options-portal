@@ -28,7 +28,7 @@
       <div class="w-full h-[1px]"
            style="background: linear-gradient(90deg, rgba(192, 204, 218, 0.1) 0%, rgba(192, 204, 218, 0.6) 50.38%, rgba(192, 204, 218, 0.1) 100%);"/>
 
-      <!--      Why Invest in Steadyoption?-->
+
       <p
           class="
             <md:(text-[20px] mt-[30px])
@@ -118,12 +118,15 @@ import isNil from 'lodash-es/isNil'
 export default defineComponent({
   components: {
     ThePart,
+  }, props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "We accept",
-      t2: "Why Invest in Steadyoption?",
+      t2: "Why Invest in "+siteInfo.siteName +"?",
       t3: "A leading UK investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
     })
 
@@ -139,12 +142,12 @@ export default defineComponent({
       {
         label: "Safe & Secure",
         icon: "/index/part3/Safe.png",
-        description: "Steady Group is headquartered in London,United Kingdom, and is subject to the supervision of the British Stock Exchange and the British FCA. Client funds are deposited in a separate secure account at Barclays Bank in the United Kingdom",
+        description: siteInfo.siteName+" Group is headquartered in London,United Kingdom, and is subject to the supervision of the British Stock Exchange and the British FCA. Client funds are deposited in a separate secure account at Barclays Bank in the United Kingdom",
         descriptionIcon: "/index/part3/Safe&Secure.png"
       }, {
         label: "Open and transparent",
         icon: "/index/part3/open.png",
-        description: "Steady option offers advanced the gateway USES advanced encryption technology of up to 256 bits. Allow each customer to instantly customize the trading strategy, and real-time view of the transaction records. ",
+        description: siteInfo.siteName+" offers advanced the gateway USES advanced encryption technology of up to 256 bits. Allow each customer to instantly customize the trading strategy, and real-time view of the transaction records. ",
         descriptionIcon: "/index/part3/Openandtransparent.png"
       }, {
         label: "Transaction zero tax",
@@ -154,7 +157,7 @@ export default defineComponent({
       }, {
         label: "Fast Execution",
         icon: "/index/part3/Fast.png",
-        description: "Steady option provides investors with education on trading strategies and financial markets to clients in need. ",
+        description: siteInfo.siteName+" provides investors with education on trading strategies and financial markets to clients in need. ",
         descriptionIcon: "/index/part3/FastExecution.png"
       }, {
         label: "World-class team",

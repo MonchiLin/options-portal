@@ -17,6 +17,7 @@
       style="box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07)"
     >
       <template :key="index" v-for="(item, index) of datas">
+        
         <div class="<md:(w-full) w-[30%] items-center flex flex-row">
           <img
             :src="item.icon"
@@ -26,7 +27,12 @@
           <div class="flex flex-col ml-[10px]">
             <p class="text-[25px] <md:(text-[18px])">{{ item.label }}</p>
             <p class="mt-[10px] text-blue text-[16px] <md:(text-[14px])">
+              <a :href="item.link" target="_blank" v-if="item.link">
               {{ item.contract }}
+              </a>
+              <a v-else>
+              {{ item.contract }}
+              </a>
             </p>
           </div>
         </div>
@@ -80,10 +86,10 @@ export default defineComponent({
       },
       {
         icon: "/company/contractus/part2/Server.png",
-        label: "WhatsApp",
+        label: "Online Chat",
         type: ContractKind.PhoneNumber,
-        contract: siteInfo["siteWhatsapp"],
-        link: "",
+        contract: "Start Chat​",
+        link: "https://tawk.to/chat/60407aa3385de407571c54a6/1evttu4c9",
       },
     ]);
 

@@ -84,13 +84,17 @@ export default defineComponent({
     ThePart,
     BluePointer
   },
-  setup() {
+  props: {
+    siteInfo: Object
+  },
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Top trading team—Jan Thomson",
       t2: "Jan Thomson is from London, England, and has more than 20 years of trading experience as a senior trader in some of the largest fund companies in Europe. Because of his trading talent, he successfully joined a British hedge fund that mainly trades gold. With years of experience in developing a series of custom technical risk indicators, and focusing on G7 gold to impulse trading, the average return rate of the fund he manages exceeded 162% in 10 years, with a compound interest rate of 1800%. If 10 years ago, you Invested 10,000 US dollars in his fund...\n" +
           "\n" +
-          "Jan Thomson is now a senior trader in the team at SteadyOption, earning an average of about 12% of revenue for customers every month."
+          "Jan Thomson is now a senior trader in the team at "+siteInfo.siteName+", earning an average of about 12% of revenue for customers every month."
     })
 
     const peoples = reactive([

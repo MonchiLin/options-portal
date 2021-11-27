@@ -33,12 +33,15 @@ import ThePart from "~/components/the-part.vue";
 export default defineComponent({
   components: {
     ThePart
+  },props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Our business development",
-      t2: "Steadyoption has many years of investment experience and is the most prestigious investment and wealth management company in the UK. The company is headquartered in the United Kingdom and has operations in 7 countries and regions including Sydney, Switzerland, India, London, Dubai, Hong Kong, Vietnam, and Thailand. ",
+      t2:  siteInfo.siteName+" has many years of investment experience and is the most prestigious investment and wealth management company in the UK. The company is headquartered in the United Kingdom and has operations in 7 countries and regions including Sydney, Switzerland, India, London, Dubai, Hong Kong, Vietnam, and Thailand. ",
     })
 
 

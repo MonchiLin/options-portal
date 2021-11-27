@@ -9,7 +9,7 @@
     <main class="flex flex-col w-full">
       <download-part1 :siteInfo="siteInfo"/>
       <download-part2 :siteInfo="siteInfo"/>
-      <download-part3 />
+      <download-part3 :siteInfo="siteInfo"/>
       <download-part4 :siteInfo="siteInfo"/>
     </main>
     <the-footer :siteInfo="siteInfo"/>

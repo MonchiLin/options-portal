@@ -51,16 +51,20 @@ export default defineComponent({
     ThePart,
     BluePointer
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props){
+    const siteInfo=props.siteInfo
     const mq = useMediaQuery()
     const text = reactive({
       t1: "About documentary financial management",
-      t2: "Steadyoption's documentary financial management has changed the rules of the game in the industry.\n" +
+      t2: siteInfo.siteName+"'s documentary financial management has changed the rules of the game in the industry.\n" +
           "Customers only need to purchase documentary financial products, and top traders perform transaction operations. This allows anyone to purchase documentary financial management to trade like top traders.",
       t3: "With a single financial",
       t4: "Documentary financial management is to follow the traders to complete their own investments. Every investment operation performed by traders is cautious, and their teams cooperate with each other to collect and provide the latest market trends and data, so that every transaction is full of confidence!\n" +
           "\n" +
-          "Whether you are an investment beginner or an investment enthusiast who has no time to observe the market, you can now use the expertise of the SteadyOption platform traders to profit. On the SteadyOption platform, by purchasing documentary financial products, the system will automatically follow the operations of top traders based on the documentary financial products you purchase, and use the experience and data of top traders to help you make money.",
+          "Whether you are an investment beginner or an investment enthusiast who has no time to observe the market, you can now use the expertise of the "+siteInfo.siteName+" platform traders to profit. On the "+siteInfo.siteName+" platform, by purchasing documentary financial products, the system will automatically follow the operations of top traders based on the documentary financial products you purchase, and use the experience and data of top traders to help you make money.",
     })
 
     return {
