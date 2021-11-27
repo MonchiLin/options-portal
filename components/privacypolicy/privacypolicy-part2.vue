@@ -9,7 +9,7 @@
       >
            <h5 class="text-[14px] ht-[48px]  <md:(text-[14px] ht-[48px])">
           
-              <a href="/">Home</a>/<a class="text-blue" >Privacy Policy</a>
+              <a href="/">Home</a>/<a class="text-blue" >{{ text.t1 }}</a>
         </h5>
     </div>
   </the-part>

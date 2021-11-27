@@ -72,7 +72,7 @@ export default defineComponent({
       links: [
         {label: "FAQ", link: "/company/faq/"},
         {label: "Privarcy Policy", link: "/privacypolicy"},
-        // {label: "Cookie Policys", link: "/"},
+        {label: "Cookie Policys", link: "/cookiepolicy"},
         // {label: "Terms of service", link: "/"},
       ]
     })
