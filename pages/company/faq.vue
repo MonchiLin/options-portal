@@ -2,7 +2,7 @@
   <nuxt-layout name="layout">
     <Html>
       <Head>
-        <Title>QIQUAN-Company-FAQ</Title>
+        <Title>Company-FAQ</Title>
       </Head>
     </Html>
     <the-header :siteInfo="siteInfo"/>

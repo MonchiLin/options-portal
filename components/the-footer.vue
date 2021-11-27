@@ -71,7 +71,7 @@ export default defineComponent({
       t2: "Open Account",
       links: [
         {label: "FAQ", link: "/company/faq/"},
-        // {label: "Privarcy Policy", link: "/"},
+        {label: "Privarcy Policy", link: "/privacypolicy"},
         // {label: "Cookie Policys", link: "/"},
         // {label: "Terms of service", link: "/"},
       ]
