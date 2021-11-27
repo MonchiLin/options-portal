@@ -9,7 +9,7 @@
     <main class="flex flex-col w-full">
       <company-contractus-part1/>
       <company-contractus-part2 :siteInfo="siteInfo"/>
-      <company-contractus-part3/>
+      <company-contractus-part3 :siteInfo="siteInfo"/>
     </main>
     <the-footer :siteInfo="siteInfo"/>
   </nuxt-layout>

@@ -65,12 +65,7 @@ export default defineComponent({
  setup(props) {
     const mq = useMediaQuery()
 
-    const leftText = reactive({
-      t1: "steady-option Group is authorized and regulated in various jurisdictions.\n" +
-          "Risk Warning: Investment is at risk.You should not invest more than you can afford to lose and should ensure that you fully understand the risks involved. Before trading, please take into consideration your level of experience, investment objectives and seek independent financial advice if necessary. It is the responsibility of the Client to ascertain whether he/she is permitted to use the services of the Steady Group based on the legal requirements in his/her country of residence. Please read Steady Group full Risk Disclosure. ",
-     
-    })
-
+    
     const rightText = reactive({
       t1: "Download App",
       t2: "Open Account",
@@ -82,6 +77,11 @@ export default defineComponent({
       ]
     })
     const siteInfo=props.siteInfo
+    const leftText = reactive({
+      t1: siteInfo.corpName+" is authorized and regulated in various jurisdictions.\n" +
+          "Risk Warning: Investment is at risk.You should not invest more than you can afford to lose and should ensure that you fully understand the risks involved. Before trading, please take into consideration your level of experience, investment objectives and seek independent financial advice if necessary. It is the responsibility of the Client to ascertain whether he/she is permitted to use the services of the Steady Group based on the legal requirements in his/her country of residence. Please read Steady Group full Risk Disclosure. ",
+     
+    })
 
     const onClickDownload = () => {
 

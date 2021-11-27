@@ -51,7 +51,7 @@
             {{ text.t5 }}
           </button>
         </a>
-        <a :href="siteInfo.webDomain+'/#/projectList'">
+        <a href="/products">
           <div class="flex items-center ml-[30px]">
             <span class="text-orange">{{ text.t6 }}</span>
             <img class="w-[22px] pl-[10px]" src="/index/arrow-right.png" alt="">

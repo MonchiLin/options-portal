@@ -9,7 +9,7 @@
     <main class="flex flex-col w-full">
       <company-aboutus-part1/>
       <company-aboutus-part2/>
-      <company-aboutus-part3/>
+      <company-aboutus-part3 :siteInfo="siteInfo"/>
       <company-aboutus-part4/>
       <company-aboutus-part5/>
       <company-aboutus-part6/>

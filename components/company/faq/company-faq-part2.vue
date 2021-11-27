@@ -133,7 +133,7 @@ export default defineComponent({
         body: 'articleClassMark='+i['mark'],
       })
        const articleClassList=await response.json();
-        console.log(articleClassList.data)
+       
         tabDetails.push(articleClassList.data)
         
         
