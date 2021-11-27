@@ -2,17 +2,17 @@
   <nuxt-layout name="layout">
     <Html>
     <Head>
-      <Title>QIQUAN-Download</Title>
+      <Title>Download</Title>
     </Head>
     </Html>
-    <the-header/>
+    <the-header :siteInfo="siteInfo"/>
     <main class="flex flex-col w-full">
-      <download-part1/>
-      <download-part2/>
-      <download-part3/>
-      <download-part4/>
+      <download-part1 :siteInfo="siteInfo"/>
+      <download-part2 :siteInfo="siteInfo"/>
+      <download-part3 />
+      <download-part4 :siteInfo="siteInfo"/>
     </main>
-    <the-footer/>
+    <the-footer :siteInfo="siteInfo"/>
   </nuxt-layout>
 </template>
 
@@ -20,6 +20,7 @@
 import { defineComponent } from "vue";
 import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
+import { publicMethod } from "~/utils/shared";
 import DownloadPart1 from "~/components/download/download-part1.vue";
 import DownloadPart2 from "~/components/download/download-part2.vue";
 import DownloadPart3 from "~/components/download/download-part3.vue";
@@ -34,12 +35,10 @@ export default defineComponent({
     TheFooter,
     TheHeader
   },
-  setup() {
-
-    return {
-
-    }
-  }
+  async setup() {
+    const siteInfo = await publicMethod.getSiteInfo();
+    return {siteInfo};
+  },
 })
 
 </script>

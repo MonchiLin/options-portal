@@ -56,12 +56,14 @@
         class="absolute px-[20px] w-full"
         :style="{ bottom: isPrimary ? '65px' : '35px' }"
     >
+    <a :href="siteInfo.webDomain+'/#/projectList'">
       <button
           class="w-full py-[15px] rounded-[6px] font-bold"
           :class="[isPrimary ? 'bg-white text-blue' : 'bg-blue text-white']"
       >
         Invest now
       </button>
+    </a>
     </div>
 
 
@@ -71,7 +73,7 @@
 <script lang="ts">
 import { computed, defineComponent, nextTick, onMounted, PropType, ref, watch } from "vue";
 import BluePointer from "~/components/blue-pointer.vue";
-import { useMediaQuery } from "~/utils/shared";
+import { useMediaQuery,publicMethod } from "~/utils/shared";
 
 export default defineComponent({
   components: {BluePointer},
@@ -79,7 +81,7 @@ export default defineComponent({
     theme: String as PropType<"primary" | "secondary">,
     config: Object
   },
-  setup(props) {
+ async setup(props) {
     const mq = useMediaQuery()
     const offset = 643 - 583
     const isPrimary = ref<boolean>(false)
@@ -101,11 +103,12 @@ export default defineComponent({
     //     check()
     //   })
     // })
-
+const siteInfo=await publicMethod.getSiteInfo()
     return {
       mq,
       offset,
-      isPrimary
+      isPrimary,
+      siteInfo
     }
   }
 })

@@ -5,7 +5,7 @@ const matches = reactive({
   mobile: false,
   desktop: false
 });
-
+const URL = "https://oapi.payeres.com";
 const listen = () => {
   const mobile = window.matchMedia('screen and (max-width: 575px)');
   const desktop = window.matchMedia('screen and (min-width: 576px)');
@@ -55,5 +55,13 @@ export type ApiWrap<T> = {
   success: boolean
   sysTime: number
 }
-
-export const BASE_URL = "https://oapi.payeres.com"
+export const publicMethod = {
+  getSiteInfo: async function () {
+    const api = URL + "/api/home/siteInfo";
+   
+    const response = await fetch(api);
+    const data=await response.json();
+    return data.data;
+  }
+}
+export const BASE_URL=URL;

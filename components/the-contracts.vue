@@ -53,64 +53,36 @@ enum ContractKind {
   Email,
   Link,
 }
-type DataType = {
-  id: number;
-  userId: number;
-  siteName: string;
-  siteLogo: string;
-  siteDomain: string;
-  shortDomain: string;
-  adminDomain: string;
-  webDomain: string;
-  siteEmail: string;
-  siteTelephone: string;
-  siteMobile: string;
-  siteWhatsapp: string;
-  siteTelegram: string;
-  siteFacebook: string;
-  siteTwitter: string;
-  siteYoutube: string;
-  siteTiktok: string;
-  corpName: string;
-  corpAddress: string;
-  status: string;
-  serviceTime: string;
-  countryCode: string;
-  currencyCode: string;
-  addTime: number;
-  currencySymbol: string;
-  areaCode: string;
-  timeZone: number;
-};
+
 export default defineComponent({
   components: {
     TabBar,
     ThePart,
   },
-  async setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props){
     const mq = useMediaQuery();
-
-    const api = BASE_URL + "/api/home/siteInfo";
-    const { data: res } = await useFetch<string, ApiWrap<DataType>>(api);
-    const data = res.value?.data ?? {};
+    const siteInfo=props.siteInfo
     const datas = reactive([
       {
         icon: "/company/contractus/part2/phone.png",
         label: "Contact number",
         type: ContractKind.PhoneNumber,
-        contract: data["siteTelephone"],
+        contract: siteInfo["siteTelephone"],
       },
       {
         icon: "/company/contractus/part2/MAIL.png",
         label: "E-Mail",
         type: ContractKind.Email,
-        contract: data["siteEmail"],
+        contract: siteInfo["siteEmail"],
       },
       {
         icon: "/company/contractus/part2/Server.png",
         label: "WhatsApp",
         type: ContractKind.PhoneNumber,
-        contract: data["siteWhatsapp"],
+        contract: siteInfo["siteWhatsapp"],
         link: "",
       },
     ]);

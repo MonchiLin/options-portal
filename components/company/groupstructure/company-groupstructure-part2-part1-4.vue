@@ -3,7 +3,7 @@
       class="
           <md:(h-auto pt-[30px] pb-[32px])
          "
-  />
+  :siteInfo="siteInfo" />
 </template>
 
 <script lang="ts">
@@ -26,17 +26,21 @@ export default defineComponent({
     ThePart,
     IosArrowRoundForwardIcon
   },
-  setup() {
+  props: {
+    siteInfo: Object
+  },
+  setup(props){
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Get started for free",
       t2: "Choosing the best performing trader's trading strateg",
       t3: "Open an account"
     })
-
+    const siteInfo=props.siteInfo
     return {
       mq,
-      text
+      text,
+      siteInfo
     }
   }
 })

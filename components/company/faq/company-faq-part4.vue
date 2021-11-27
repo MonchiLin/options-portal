@@ -2,7 +2,7 @@
   <the-part
       background-color="#FAFAFA"
   >
-    <the-get-started
+    <the-get-started :siteInfo="siteInfo"
         class="
           <md:(h-auto pt-[30px] pb-[32px])
          page-content
@@ -33,11 +33,15 @@ export default defineComponent({
     ThePart,
     IosArrowRoundForwardIcon
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props) {
     const mq = useMediaQuery()
-
+    const siteInfo=props.siteInfo
     return {
-      mq
+      mq,
+      siteInfo
     }
   }
 })

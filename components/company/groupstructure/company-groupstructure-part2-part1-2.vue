@@ -4,6 +4,7 @@
           <md:(pt-[30px] pb-[40px])
           pt-[60px] pb-[110px]
         "
+        :siteInfo="siteInfo"
   >
 
   </the-contracts>

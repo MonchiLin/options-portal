@@ -13,11 +13,12 @@
       <p class="text-[35px] font-black <md:(text-[20px]) text-primary">{{ text.t1 }}</p>
 
       <the-stpes :steps="steps"/>
-
-      <button
-          class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
-        {{ text.t2 }}
-      </button>
+      <a :href="siteInfo.webDomain">
+        <button
+            class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
+          {{ text.t2 }}
+        </button>
+      </a>
     </div>
   </the-part>
 </template>
@@ -36,13 +37,16 @@ export default defineComponent({
     ThePart,
     BluePointer
   },
-  setup() {
+  props: {
+    siteInfo: Object,
+  },
+  setup(props) {
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Ready to trade?",
       t2: "Open an account",
     })
-
+    const siteInfo=props.siteInfo
     const steps = reactive([
       {
         label: "Open an account",
@@ -61,7 +65,8 @@ export default defineComponent({
     return {
       mq,
       text,
-      steps
+      steps,
+      siteInfo
     }
   }
 })

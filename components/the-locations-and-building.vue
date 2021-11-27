@@ -81,37 +81,17 @@ export default defineComponent({
     const text = reactive({
       t1: "You Can also Connect with Us",
     });
-    const defaultData = {
-      name: "India branch",
-        location: "27-31 Melville Street-Edinburgh UK-EH3 7JF",
-    };
-   
+
     const api = BASE_URL + "/api/home/corpAddress";
     const { data: res } = await useFetch<string, String>(api);
     const data = res.value?.data ?? {};
-    console.log(data['1']);
-   const locations = reactive([
-      {
-        name: data['1'],
-        location: "27-31elville Street-Edinburgh UK-EH3 7JF",
-      },
-      {
-        name: "India branch",
-        location: "D Block, Connaught Place, New Delhi, Delhi 110001",
-      },
-      {
-        name: "Canadian branch",
-        location: "Toronto-Foyston, Gordon & Payne Inc.-1 Adelaide Street East, Suite 2600-Toronto, ON M5C 2V8",
-      },
-      {
-        name: "New Zealand branch",
-        location: "Level 1, Meridian Building-55 Lady Elizabeth Lane-Queens Wharf-Wellington 6011",
-      },
-      {
-        name: "Singapore branch",
-        location: "1 Wallich Street #15-01-Guoco Tower-Singapore 078861",
-      },
-    ])
+    const locations = reactive([]);
+    for (var i in data) {
+      locations.push({
+        name: data[i].split(":")[0],
+        location: data[i].split(":")[1],
+      });
+    }
 
     return {
       text,

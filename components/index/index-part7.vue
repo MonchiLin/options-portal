@@ -70,18 +70,20 @@
               style="border: 2px solid #ef7f3c"
               class="relative top-[15px] w-[40px] h-1"
             />
-            <div class="ml-[14px] relative">
-              <p class="text-[20px] leading-[32px]">{{ item.label }}</p>
-              <a
-                :href="item.link"
-                class="flex flex-row items-center relative w-full mt-[24px]"
-              >
-                <span>{{ text.t2 }}</span>
-                <ios-arrow-round-forward-icon
-                  class="pl-[8px] relative top-[2px]"
-                />
-              </a>
-            </div>
+            <a :href="item.link">
+              <div class="ml-[14px] relative">
+                <p class="text-[20px] leading-[32px]">{{ item.label }}</p>
+                <a
+                  :href="item.link"
+                  class="flex flex-row items-center relative w-full mt-[24px]"
+                >
+                  <span>{{ text.t2 }}</span>
+                  <ios-arrow-round-forward-icon
+                    class="pl-[8px] relative top-[2px]"
+                  />
+                </a>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -161,14 +163,14 @@ export default defineComponent({
     const api = BASE_URL + "/api/index/articleList";
     const { data: res } = await useFetch<string, ApiWrap<DataType[]>>(api, {
       method: "post",
-      params: { articleClassMark: "article" },
+      params: { articleClassMark: "article", pageSize: 4 },
     });
     const data = res.value?.data ?? [];
     cardData.value = data.map((i: DataType) => {
       const item = cloneDeep(defaultData);
-      item.coverImage=BASE_URL+i.img;
-      item.label=i.title;
-     
+      item.coverImage = BASE_URL + i.img;
+      item.label = i.title;
+      item.link = "/news/" + i.id;
       return item;
     });
     console.log(data);

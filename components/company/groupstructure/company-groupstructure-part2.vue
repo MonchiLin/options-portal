@@ -22,16 +22,16 @@
       <div class="pt-[60px] <md:(pt-[20px])"/>
       <div v-show="tabIndex === 0" class="w-full">
         <company-groupstructure-part2-part1-1/>
-        <company-groupstructure-part2-part1-2/>
+        <company-groupstructure-part2-part1-2 :siteInfo="siteInfo"/>
         <company-groupstructure-part2-part1-3/>
-        <company-groupstructure-part2-part1-4/>
+        <company-groupstructure-part2-part1-4 :siteInfo="siteInfo"/>
       </div>
 
       <div v-show="tabIndex === 1" class="w-full">
         <company-groupstructure-part2-part2-1/>
-        <company-groupstructure-part2-part1-2/>
+        <company-groupstructure-part2-part1-2 :siteInfo="siteInfo"/>
         <company-groupstructure-part2-part1-3/>
-        <company-groupstructure-part2-part1-4/>
+        <company-groupstructure-part2-part1-4 :siteInfo="siteInfo"/>
       </div>
 
       <div v-show="tabIndex === 2" class="w-full">
@@ -73,7 +73,10 @@ export default defineComponent({
     ThePart,
     IosArrowUpIcon,
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props) {
     const mq = useMediaQuery()
     const tabIndex = ref(0)
     const tabItems = computed(() => {
@@ -83,7 +86,7 @@ export default defineComponent({
         "shareholders",
       ]
     })
-
+    const siteInfo=props.siteInfo
     const part3Text = reactive({
       t1:"Group shareholders",
       t2: " steady Group Holding Ltd (the \"Company\") is the listed vehicle of the Group. It was incorporated on 12 August 1999. Its shares have been listed on SIX steady Exchange since 29 May 2000 with the symbol SQN, the security number 1067586 and the ISIN number CH0010675863.As at 31 December 2019, the market capitalisation of the Company amounted to approximately CHF 743,725,000. Details on the Company's capital are provided in Section 2.\n" +
@@ -101,7 +104,8 @@ export default defineComponent({
       mq,
       tabIndex,
       tabItems,
-      part3Text
+      part3Text,
+      siteInfo
     }
   }
 })

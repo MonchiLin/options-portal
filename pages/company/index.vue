@@ -2,10 +2,10 @@
   <nuxt-layout name="layout">
     <Html>
     <Head>
-      <Title>QIQUAN-Company</Title>
+      <Title>Company</Title>
     </Head>
     </Html>
-    <the-header/>
+    <the-header :siteInfo="siteInfo"/>
     <main class="flex flex-col w-full">
       <company-aboutus-part1/>
       <company-aboutus-part2/>
@@ -14,9 +14,9 @@
       <company-aboutus-part5/>
       <company-aboutus-part6/>
       <company-aboutus-part7/>
-      <company-aboutus-part8/>
+      <company-aboutus-part8 :siteInfo="siteInfo"/>
     </main>
-    <the-footer/>
+    <the-footer :siteInfo="siteInfo"/>
   </nuxt-layout>
 </template>
 
@@ -45,11 +45,13 @@ export default defineComponent({
     CompanyAboutusPart1,
     TheFooter,
     TheHeader
+  }, props: {
+    siteInfo: Object
   },
-  setup() {
-
+  setup(props) {
+    const siteInfo=props.siteInfo
     return {
-
+      siteInfo
     }
   }
 })

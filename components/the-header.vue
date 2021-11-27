@@ -9,9 +9,9 @@
     >
 
       <div class="flex flex-row items-center">
-        <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
+        <img :src="siteInfo.siteDomain+siteInfo.siteLogo" class="w-[28px] h-[28px]"/>
         <h1 class="pl-[12px] text-white">
-          <a href="/">QIQUAN</a>
+          <a href="/">{{name}}</a>
         </h1>
       </div>
 
@@ -24,12 +24,12 @@
             :item="item"
         />
       </div>
-
+       <a :href="siteInfo.webDomain">
       <button
           class="<md:hidden font-medium flex flex-row items-center px-[10px] h-[40px] py-[20px] bg-white rounded-[6px] text-[#2368E1]">
         Open Account
       </button>
-
+      </a>
       <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]"
            src="/the-header/icons8-menu_rounded.png" alt="">
 
@@ -44,7 +44,7 @@
             <div class="flex flex-row items-center">
               <img src="/the-header/logo.png" class="w-[28px] h-[28px]"/>
               <h1 class="pl-[12px] text-white">
-                <a href="/">QIQUAN</a>
+                <a href="/">{{name}}</a>
               </h1>
             </div>
             <img @click="handleMenuClick" class="sm:block md:hidden cursor-pointer w-[25px]"
@@ -88,7 +88,10 @@ export default defineComponent({
     IosArrowDownIcon,
     Sidebar
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props) {
     const mq = useMediaQuery()
     const navs = reactive([
       {title: "Home", linkKind: "link", link: "/"},
@@ -160,14 +163,15 @@ export default defineComponent({
         headerStyle.backgroundColor = undefined
       }
     }
-
+ const siteInfo=props.siteInfo
     onMounted(() => {
       window.addEventListener("scroll", onScroll)
     })
-
+   
     return {
       mq,
       navs,
+      siteInfo,
       activeRouteIndex,
       handleMenuClick,
       visible,

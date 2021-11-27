@@ -10,12 +10,12 @@
       <p class="<md:(text-20px) text-35px font-black">{{ text.t1 }}</p>
 
       <p class="<md:(mt-[18px] text-center) mt-[18px]">{{ text.t2 }}</p>
-
+      <a :href="siteInfo.webDomain">
       <button
           class="<md:(mt-[18px]) mt-[18px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
         {{ text.t3 }}
       </button>
-
+      </a>
     </div>
 
     <img
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import { useMediaQuery } from "~/utils/shared";
+import { useMediaQuery,publicMethod } from "~/utils/shared";
 import { reactive, ref } from "vue";
 import ThePart from "~/components/the-part.vue";
 import Part5Card from "~/components/index/part5/part5-card.vue";
@@ -47,17 +47,21 @@ export default defineComponent({
     ThePart,
     IosArrowRoundForwardIcon
   },
-  setup() {
+  props: {
+    siteInfo: Object
+  },
+  setup(props)  {
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Get started for free",
       t2: "Choosing the best performing trader's trading strateg",
       t3: "Open an account"
     })
-
+  const siteInfo=props.siteInfo
     return {
       mq,
-      text
+      text,
+      siteInfo
     }
   }
 })

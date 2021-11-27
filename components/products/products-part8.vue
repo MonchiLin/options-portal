@@ -41,6 +41,7 @@
           </p>
 
           <div class="flex flex-row w-full justify-center items-center mt-[70px] pb-[70px] <md:(flex-col mt-[55px] pb-[40px]) text-white">
+            <a :href="siteInfo.androidUrl">
             <button
                 @click="onClickDownload"
                 class="w-[198px] bg-primary rounded-[10px] border-1 border-white flex flex-row items-center justify-center py-[12px]">
@@ -49,7 +50,8 @@
                 Download App
               </span>
             </button>
-
+            </a>
+            <a :href="siteInfo.webDomain">
             <button
                 @click="onClickOpenAccount"
                 class="<md:(mt-[20px] ml-0) ml-[20px] w-[198px] bg-primary rounded-[10px] border-1 border-white flex flex-row items-center justify-center py-[12px]">
@@ -58,6 +60,7 @@
                 Open Account
               </span>
             </button>
+            </a>
           </div>
         </div>
       </div>
@@ -80,14 +83,17 @@ export default defineComponent({
     ThePart,
     BluePointer
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+ setup(props) {
     const mq = useMediaQuery()
     const text = reactive({
       t1: "The process we follow",
       cardT1: "Ready to get started?",
       cardT2: "Get in touch, or create an account",
     })
-
+    const siteInfo=props.siteInfo
     const steps = reactive([
       {
         step: "Step 1",
@@ -125,6 +131,7 @@ export default defineComponent({
       steps,
       onClickDownload,
       onClickOpenAccount,
+      siteInfo
     }
   }
 })

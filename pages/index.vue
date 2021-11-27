@@ -2,27 +2,27 @@
   <nuxt-layout name="layout">
     <Html>
     <Head>
-      <Title>QIQUAN-Home</Title>
+      <Title>Home</Title>
     </Head>
     </Html>
-    <the-header/>
+    <the-header :siteInfo="siteInfo"/>
     <main class="flex flex-col w-full">
-      <index-part1/>
-      <index-part2/>
+      <index-part1 :siteInfo="siteInfo"/>
+      <index-part2 :siteInfo="siteInfo"/>
       <index-part3/>
       <index-part4/>
-      <index-part5/>
+      <index-part5 />
       <index-part6/>
       <index-part7/>
       <index-part8/>
     </main>
-    <the-footer/>
+    <the-footer :siteInfo="siteInfo"/>
   </nuxt-layout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "@vue/runtime-core";
-import { useMediaQuery } from "~/utils/shared";
+import { useMediaQuery,publicMethod} from "~/utils/shared";
 import TheHeader from "~/components/the-header.vue";
 import TheFooter from "~/components/the-footer.vue";
 import IndexPart1 from "~/components/index/index-part1.vue";
@@ -39,10 +39,11 @@ export default defineComponent({
   components: {
     IndexPart8,
     IndexPart7, IndexPart6, IndexPart5, IndexPart4, IndexPart3, IndexPart2, IndexPart1, TheFooter, TheHeader},
-  setup() {
+ async setup() {
     const mq = useMediaQuery()
-
+    const siteInfo=await publicMethod.getSiteInfo()
     return {
+      siteInfo,
       mq
     }
   }

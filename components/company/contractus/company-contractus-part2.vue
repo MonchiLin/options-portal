@@ -7,7 +7,7 @@
           <md:(pt-[20px] pb-[40px])
           pt-[120px] pb-[110px] page-content
         "
-    >
+   :siteInfo="siteInfo" >
 
     </the-contracts>
   </the-part>
@@ -26,11 +26,15 @@ export default defineComponent({
     TheContracts,
     ThePart,
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props) {
     const mq = useMediaQuery()
-
+    const siteInfo=props.siteInfo
     return {
       mq,
+      siteInfo
     }
   }
 })

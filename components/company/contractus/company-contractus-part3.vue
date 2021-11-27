@@ -26,9 +26,12 @@ export default defineComponent({
     TheLocationsAndBuilding,
     ThePart,
   },
-   setup() {
+   props: {
+    siteInfo: Object
+  },
+  setup(props) {
     const mq = useMediaQuery()
-    
+    const siteInfo=props.siteInfo
     const text = reactive({
       t1: "You Can also Connect with Us"
     })

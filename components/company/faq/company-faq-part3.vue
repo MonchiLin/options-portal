@@ -47,16 +47,19 @@
           <div class="flex flex-col justify-center">
             <p class="text-[24px] <md:(text-[12px])">{{ panels.p2.title }}</p>
             <p class="text-[16px] pt-[10px] <md:(text-[10px] pt-[6px])">
-              <a class="text-blue" href="mailto: steadyoption@yahoo.com">steadyoption@yahoo.com</a>
+              <a class="text-blue" :href="'mailto: '+siteInfo.siteEmail">{{siteInfo.siteEmail}}</a> 
               <span class="pl-[10px]">Send us your question</span>
+             
+              
             </p>
           </div>
         </div>
       </div>
-
+      <a href='/company/contractus'>
       <button class="<md:(mt-[30px]) mt-[60px] w-[279px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
         {{ text.t2 }}
       </button>
+      </a>
 
     </div>
   </the-part>
@@ -73,13 +76,16 @@ export default defineComponent({
   components: {
     ThePart,
   },
-  setup() {
+    props: {
+    siteInfo: Object
+  },
+  setup(props) {
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Did not find the answer?  You can consult us.",
       t2: "Contact us",
     })
-
+    const siteInfo=props.siteInfo
     const panels = reactive({
       p1: {
         title: "Chat",
@@ -97,6 +103,7 @@ export default defineComponent({
       panels,
       mq,
       text,
+      siteInfo
     }
   }
 })

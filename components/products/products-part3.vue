@@ -29,13 +29,14 @@
 
         <h6 class="text-primary text-[35px] leading-[48px] font-black <md:(text-[20px] leading-[20px])">{{ text.t1 }}</h6>
         <h5 class="whitespace-pre-line pt-[30px] text-[#18191F] text-[18px] leading-[32px] <md:(text-[14px] leading-[20px])">{{ text.t2 }}</h5>
-
+        
         <!--   按钮   -->
+        <a :href="siteInfo.webDomain+'/#/projectList'">
         <button
             class="<md:(mt-[30px]) text-[16px] leading-[24px] mt-[16px] w-[193px] bg-orange text-white rounded-[6px] py-[12px] flex items-center justify-center">
           {{ text.t3 }}
         </button>
-
+        </a>
       </div>
 
     </div>
@@ -54,7 +55,11 @@ export default defineComponent({
     ThePart,
     BluePointer
   },
-  setup() {
+   props: {
+    siteInfo: Object
+  },
+ setup(props) {
+    
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Top traders work for you - no management fees",
@@ -63,10 +68,12 @@ export default defineComponent({
           "Behind all the documentary financial products of the platform is a top-level professional investment team. They are both intelligent and experienced, and they are all elites in the industry. Now, you have the opportunity to let them work for you and let a team invest for you! This is the advantage of documentary financial management, and it is also a factor welcomed by investors!",
       t3: "Invest now"
     })
-
+    const siteInfo=props.siteInfo
     return {
+      
       mq,
-      text
+      text,
+      siteInfo
     }
   }
 })

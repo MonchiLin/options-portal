@@ -42,6 +42,7 @@
               mt-[42px] flex flex-row items-center
             "
         >
+         <a :href="siteInfo.webDomain+'/#/projectList'">
           <button
               class="
             w-[163px] h-[48px] bg-orange rounded-[6px] text-white
@@ -49,11 +50,13 @@
           >
             {{ text.t5 }}
           </button>
-
+        </a>
+        <a :href="siteInfo.webDomain+'/#/projectList'">
           <div class="flex items-center ml-[30px]">
             <span class="text-orange">{{ text.t6 }}</span>
             <img class="w-[22px] pl-[10px]" src="/index/arrow-right.png" alt="">
           </div>
+         </a>
         </div>
       </div>
 
@@ -80,8 +83,10 @@ export default defineComponent({
   components: {
     ThePart,
     BluePointer
+  },props: {
+    siteInfo: Object
   },
-  setup() {
+  setup(props) {
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Partners for wealth creation",
@@ -97,10 +102,11 @@ export default defineComponent({
       t5: "Invest now",
       t6: "Learn more"
     })
-
+    const siteInfo=props.siteInfo
     return {
       mq,
-      text
+      text,
+      siteInfo:siteInfo
     }
   }
 })
