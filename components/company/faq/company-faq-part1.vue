@@ -33,7 +33,7 @@ export default defineComponent({
     const text = reactive({
       t1: "FAQ",
       t2: "We’ll help answer your questions so that you can\n" +
-          "get startedtrading today",
+          "get started trading today",
     })
 
     return {

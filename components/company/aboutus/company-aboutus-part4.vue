@@ -65,7 +65,7 @@ export default defineComponent({
         bgM: "/company/aboutus/part4/bg1_m.png",
       },
       {
-        description: "Founded by traders with more than 30 years of experience, the company manages foreign exchange transactions at major Canadian banks such as Imperial Bank of Canada, Royal Bank of Canada and Bank of Canada. ",
+        description: "Founded by traders with more than 30 years of experience, the company manages foreign exchange transactions at major India banks such as Prudential Financial, State Bank of India and Reserve Bank of India.",
         bg: "/company/aboutus/part4/bg2.png",
         bgM: "/company/aboutus/part4/bg2_m.png",
       },
@@ -75,7 +75,7 @@ export default defineComponent({
         bgM: "/company/aboutus/part4/bg3_m.png",
       },
       {
-        description: "Professional and dedicated, serving more than 30,000 individual and institutional clients worldwide, with a notorious reputation. "+siteInfo.siteName.toUpperCase()+"TRADE FINANCE is a registered brand for England and Wales. ",
+        description: "Professional and dedicated, serving more than 30,000 individual and institutional clients worldwide, with a notorious reputation. "+siteInfo.siteName.toUpperCase()+" TRADE FINANCE is a registered brand for England and Wales. ",
         bg: "/company/aboutus/part4/bg4.png",
         bgM: "/company/aboutus/part4/bg4_m.png",
       },

@@ -31,7 +31,7 @@
 
         <p class="<md:(mt-[18px]) mt-[18px]">{{ text.t2 }}</p>
 
-        <a href="/company/contractus"
+        <a :href="siteInfo.icp"
           ><button
             class="
               <md:(mt-[18px])
@@ -43,8 +43,7 @@
               py-[12px]
               flex
               items-center
-              justify-center
-            "
+              justify-center"
           >
             {{ text.t3 }}
           </button>

@@ -59,7 +59,7 @@ export default defineComponent({
         title: "Client-first approach",
         icon: "/company/aboutus/part2/Client.png",
         description:
-          siteInfo.siteName.toUpperCase()+"TRADE FINANCE provides customers with professional and excellent customer service 24 hours a day 5 days and 24 hours a day service support from technical departments ",
+          siteInfo.siteName.toUpperCase()+" TRADE FINANCE provides customers with professional and excellent customer service 24 hours a day 5 days and 24 hours a day service support from technical departments ",
         style: { backgroundColor: "white", color: "#171648" },
       },
       {

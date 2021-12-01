@@ -20,6 +20,7 @@
           w-full
         "
       >
+      <a :href="siteInfo.icp">
         <div
             class="
               <md:(w-full py-[5px] px-[5px])
@@ -34,7 +35,7 @@
             <p class="text-[16px] pt-[10px] <md:(text-[10px])">{{ panels.p1.description }}</p>
           </div>
         </div>
-
+      </a>
         <div
             class="
               <md:(w-full py-[5px] px-[5px] mt-[10px])

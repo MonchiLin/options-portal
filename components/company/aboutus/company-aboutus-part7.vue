@@ -89,19 +89,19 @@ export default defineComponent({
       },
       {
         text1: "winner",
-        year: "2021",
+        year: "2020",
         description: "Best Trading\n" +
             "Execution",
       },
       {
         text1: "winner",
-        year: "2021",
+        year: "2020",
         description: "Highest Overall\n" +
             "Customer Satisfaction",
       },
       {
         text1: "winner",
-        year: "2021",
+        year: "2020",
         description: "Best Platform\n" +
             "Features",
       },

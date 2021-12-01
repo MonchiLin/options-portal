@@ -113,9 +113,9 @@
         
         <p
           class="<md:(w-auto) pt-[30px] leading-[32px] text-primary text-[18px]"
-           v-for="item of text.t16"  :key="item"
+           v-for="item of text.t18"  :key="item"
         >
-          {{item}}/a>
+          {{item}}
         </p>
         <h5 class="pt-[30px] text-primary text-[35px] font-black">
           {{ text.t19 }}

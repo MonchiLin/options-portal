@@ -21,9 +21,10 @@
             flex items-center justify-between
           "
       >
-
+  
+     
         <div
-            v-for="(item, index) of cardData"
+            v-for="(item, index) of current"
             :key="index"
             :class="[cardIndex === index]"
             class="
@@ -62,6 +63,7 @@ import ThePart from "~/components/the-part.vue";
 import Part5Card from "~/components/index/part5/part5-card.vue";
 import Part5CardBox from "~/components/index/part5/part5-card-box.vue";
 import Pagintion from "~/components/pagintion.vue";
+import chunk from "lodash-es/chunk";
 // import { ElCarousel, ElCarouselItem } from "element-plus/lib/components/carousel";
 
 export default defineComponent({
@@ -80,6 +82,7 @@ export default defineComponent({
     const text = reactive({
       t1: "We are only as GOOD as our clients say WE ARE",
     })
+   
     const siteInfo=props.siteInfo
     const cardData = [
       {
@@ -99,23 +102,51 @@ export default defineComponent({
         jobTitle: "Thailand",
         avatar: "/index/part6/avatar3.png",
         description: "After using it for a while, I feel that this is the financial product I want ",
+      }, {
+        name: "Arif Khsn",
+        jobTitle: "India",
+        avatar: "/index/part6/avatar4.png",
+        description: "Now through this platform, I have achieved a stable income, and I am very happy about it ",
       },
+       {
+        name: "Anil Jadhav",
+        jobTitle: "Indonesia",
+        avatar: "/index/part6/avatar5.png",
+        description: "My friends and I both make financial investments on this platform. We it’s very professional. ",
+      },
+      {
+        name: "John Wilson",
+        jobTitle: "U.K",
+        avatar: "/index/part6/avatar6.png",
+        description: "Very good platform, looking forward to better development. ",
+      }
 
     ]
+     const paging = reactive({
+      pageIndex: 1,
+      pageTotal: 1
+    })
+     const chunks = computed(() => {
+      return chunk(cardData, 3)
+    })
+    watch(chunks, () => {
+      paging.pageTotal = chunks.value.length
+    }, {immediate: true})
 
     const cardIndex = ref(0)
-
-    const paging = reactive({
-      pageIndex: 1,
-      pageTotal: 4
+    const current = computed(() => {
+      // 移动端不分页
+      return mq.desktop ? (chunks.value[paging.pageIndex - 1] || []) : cardData
     })
+  
 
     return {
       mq,
       text,
       cardData,
       paging,
-      cardIndex
+      cardIndex,
+      current
     }
   }
 })

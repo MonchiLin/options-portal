@@ -66,19 +66,19 @@ export default defineComponent({
 
     const cardData = [
       {
-        year: "2021",
+        year: "2020",
         title: "Annual Plan",
         description: "In February,the "+siteInfo.siteName+" Global Launch Conference was held in Vancouver to announce the official launch into the Asian market.Thank you for your quality customers and excellent employees,and invite quality guests to participate in the annual "+siteInfo.siteName+" Event. \n \n As the "+siteInfo.siteName+"Group's global user capacity continues to grow,the company will offer better rewards to outstanding traders and clients,with more talented people to provide customers with a richer and more diversified investment strategy.",
       },
       {
         year: "2022",
         title: "Annual Plan",
-        description: siteInfo.siteName+" Group not only specializes in foreign exchange,in the future, if it finds outstanding enterprises in other areas of investment landmarks, does not rule out the establishment of new trading teams or corporate cooperation, so that investors in other areas can also get a sound and sound investment strategy,diversified investment options can also attract more investors' attention. \n \n Participating in the regional financial fairs, so that more investors can see the strength of the "+siteInfo.siteName+" Group,while the exhibitors with the enterprises to communicate,to provide customers with better service quality. After the global outbreak control,the company will plan to hold a grand awards and commendation conference in the United Kingdom,and invite members to visit the "+siteInfo.siteName+" Group Canada-UK National Transport headquarters",
+        description: siteInfo.siteName+" Group not only specializes in foreign exchange,in the future, if it finds outstanding enterprises in other areas of investment landmarks, does not rule out the establishment of new trading teams or corporate cooperation, so that investors in other areas can also get a sound and sound investment strategy,diversified investment options can also attract more investors' attention. \n \n Participating in the regional financial fairs, so that more investors can see the strength of the "+siteInfo.siteName+" Group,while the exhibitors with the enterprises to communicate,to provide customers with better service quality. After the global outbreak control,the company will plan to hold a grand awards and commendation conference in the United Kingdom,and invite members to visit the "+siteInfo.siteName+" Group India National Transport headquarters",
       },
       {
         year: "2023",
         title: "Annual Plan",
-        description: "In the future,we will cooperate with the company's global exchange market development map, in addition to the UK headquarters,we will be in the global market development of excellent countries to set up new offices to serve the vast number of "+siteInfo.siteName+" group customers around the world. \n \n At the end of 2023,the "+siteInfo.siteName+" Group will hold a grand annual meeting and commendation conference in Dubai,the company 's senior management will attend this grand annual dubai commendation conference, in a luxurious country to enjoy the glory brought to us by the "+siteInfo.siteName+" Group,the time to invite the world's outstanding leaders to celebrate.",
+        description: "In the future,we will cooperate with the company's global exchange market development map, in addition to the India headquarters,we will be in the global market development of excellent countries to set up new offices to serve the vast number of "+siteInfo.siteName+" group customers around the world. \n \n At the end of 2023,the "+siteInfo.siteName+" Group will hold a grand annual meeting and commendation conference in Dubai,the company 's senior management will attend this grand annual dubai commendation conference, in a luxurious country to enjoy the glory brought to us by the "+siteInfo.siteName+" Group,the time to invite the world's outstanding leaders to celebrate.",
       },
 
     ]

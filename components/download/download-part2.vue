@@ -102,9 +102,10 @@ export default defineComponent({
   },
   setup(props) {
     const mq = useMediaQuery();
+    const siteInfo = props.siteInfo;
     const text = reactive({
       t1: "Success starts with the right platform",
-      t2: "A leading UK investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
+      t2: "A leading India investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
       t3: [
         "Guarantee company underwriting risk",
         "Zero taxes, guaranteed high yield",
@@ -112,7 +113,7 @@ export default defineComponent({
       ],
       t4: "Download App",
     });
-    const siteInfo = props.siteInfo;
+    
     return {
       mq,
       text,

@@ -9,10 +9,11 @@
   },
   "type": "module",
   "devDependencies": {
+    "adm-zip": "^0.5.9",
+    "image-webpack-loader": "^8.0.1",
+    "imagemin": "^8.0.1",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "imagemin": "^8.0.1",
-    "adm-zip": "^0.5.9",
     "nuxt-windicss": "^2.0.12",
     "nuxt3": "latest",
     "sass": "^1.43.4",

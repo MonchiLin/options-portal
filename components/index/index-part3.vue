@@ -28,7 +28,7 @@
       <div class="w-full h-[1px]"
            style="background: linear-gradient(90deg, rgba(192, 204, 218, 0.1) 0%, rgba(192, 204, 218, 0.6) 50.38%, rgba(192, 204, 218, 0.1) 100%);"/>
 
-
+      <!--      Why Invest in Steadyoption?-->
       <p
           class="
             <md:(text-[20px] mt-[30px])
@@ -118,7 +118,7 @@ import isNil from 'lodash-es/isNil'
 export default defineComponent({
   components: {
     ThePart,
-  }, props: {
+  },props: {
     siteInfo: Object
   },
   setup(props) {
@@ -126,8 +126,8 @@ export default defineComponent({
     const mq = useMediaQuery()
     const text = reactive({
       t1: "We accept",
-      t2: "Why Invest in "+siteInfo.siteName +"?",
-      t3: "A leading UK investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
+      t2: "Why Invest in Steadyoption?",
+      t3: "A leading India investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
     })
 
     const paymentKinds = reactive([
@@ -137,12 +137,12 @@ export default defineComponent({
       "/index/part3/Visa.png",
       "/index/part3/poli.png"
     ])
-
+  
     const features = reactive([
       {
         label: "Safe & Secure",
         icon: "/index/part3/Safe.png",
-        description: siteInfo.siteName+" Group is headquartered in London,United Kingdom, and is subject to the supervision of the British Stock Exchange and the British FCA. Client funds are deposited in a separate secure account at Barclays Bank in the United Kingdom",
+        description: siteInfo.corpName + " is headquartered in Haryana, India, and is subject to the supervision of the Securities and Exchange Board of India and the Central Depository  Services (India)  Limited. Client funds are deposited in a separate secure account at Reserve Bank of India in the India",
         descriptionIcon: "/index/part3/Safe&Secure.png"
       }, {
         label: "Open and transparent",

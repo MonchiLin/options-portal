@@ -50,7 +50,7 @@ export default defineComponent({
     const steps = reactive([
       {
         label: "Open an account",
-        description: "Register as a Swisstrade member, log in or consult customer service ",
+        description: "Register as a "+siteInfo.siteName+" member, log in or consult customer service ",
       },
       {
         label: "Choose financial products",

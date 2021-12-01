@@ -89,7 +89,7 @@ export default defineComponent({
         label: "Online Chat",
         type: ContractKind.PhoneNumber,
         contract: "Start Chat​",
-        link: "https://tawk.to/chat/60407aa3385de407571c54a6/1evttu4c9",
+        link: siteInfo["icp"],
       },
     ]);
 
