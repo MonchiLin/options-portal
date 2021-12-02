@@ -126,7 +126,7 @@ export default defineComponent({
     const mq = useMediaQuery()
     const text = reactive({
       t1: "We accept",
-      t2: "Why Invest in Steadyoption?",
+      t2: "Why Invest in "+siteInfo.siteName+"?",
       t3: "A leading India investment services company. A rich heritage of providing effective financial solutions has made us a trusted partner of over a million people. We provide a wide array of products and services such as distribution of mutual funds & insurance, equity and derivatives, commodity, PMS and financial planning. ",
     })
 
@@ -162,7 +162,7 @@ export default defineComponent({
       }, {
         label: "World-class team",
         icon: "/index/part3/team.png",
-        description: "Founded by traders with more than 30 years of experience, the company manages foreign exchange transactions at major Canadian banks such as Imperial Bank of Canada, Royal Bank of Canada and Bank of Canada.",
+        description: "Founded by traders with more than 30 years of experience, the company manages foreign exchange transactions at major India banks such as Prudential Financial, State Bank of India and Reserve Bank of India.",
         descriptionIcon: "/index/part3/World-classteam.png"
       },
     ])

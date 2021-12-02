@@ -38,7 +38,7 @@ export default defineComponent({
     const mq = useMediaQuery()
     const text = reactive({
       t1: "Group structure",
-      t2: "The structure of the Group, which comprises "+siteInfo.siteName+" Group Holding Ltd and its subsidiaries, is designed to support the Group's operations within an efficient regulatory and tax framework.\n" +
+      t2: "The structure of the Group, which comprises "+siteInfo.siteName+" Holding Ltd and its subsidiaries, is designed to support the Group's operations within an efficient regulatory and tax framework.\n" +
           "The Group comprises the following active companies as at 31 December 2019:/1 \"Corporate governance – banks\". This Corporate Governance Report informs shareholders, prospective investors as well as the larger public on the Group's policies in matters of corporate governance, which is at the heart of a proper business conduct and a central part of the Group's internal organisation. ",
     })
     

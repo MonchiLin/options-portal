@@ -66,7 +66,7 @@ export default defineComponent({
         title: "Fast Execution",
         icon: "/company/aboutus/part2/Execution.png",
         description:
-          siteInfo.siteName.toUpperCase()+"TRADE FINANCE provides investors with education on trading strategies and financial markets to clients in need",
+          siteInfo.siteName.toUpperCase()+" TRADE FINANCE provides investors with education on trading strategies and financial markets to clients in need",
         style: { backgroundColor: "#EF7F3C", color: "white" },
       },
     ]);

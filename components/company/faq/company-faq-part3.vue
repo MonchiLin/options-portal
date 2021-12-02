@@ -20,7 +20,7 @@
           w-full
         "
       >
-      <a :href="siteInfo.icp">
+      
         <div
             class="
               <md:(w-full py-[5px] px-[5px])
@@ -29,13 +29,17 @@
             "
             style="box-shadow: 14px 22px 52px -12px rgba(127, 127, 127, 0.13);"
         >
+        <a :href="siteInfo.icp">
           <img class="w-[76px] h-[76px]" :src="panels.p1.icon" alt="">
+        </a>
+        <a :href="siteInfo.icp">
           <div class="flex flex-col justify-center">
             <p class="text-[24px] <md:(text-[12px])">{{ panels.p1.title }}</p>
             <p class="text-[16px] pt-[10px] <md:(text-[10px])">{{ panels.p1.description }}</p>
           </div>
+        </a>
         </div>
-      </a>
+      
         <div
             class="
               <md:(w-full py-[5px] px-[5px] mt-[10px])
